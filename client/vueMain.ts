@@ -56,7 +56,7 @@ export async function activate(context: vscode.ExtensionContext) {
   registerLanguageConfigurations();
 
   /**
-   * Vue Language Server Initialization
+   * ddx Language Server Initialization
    */
 
   const serverModule = context.asAbsolutePath(join('server', 'dist', 'vueServerMain.js'));

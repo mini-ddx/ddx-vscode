@@ -383,6 +383,46 @@ patterns:
         patterns:
           - include: source.js
 
+  # config use yaml
+  - begin: (<)(config)\b(?=[^>]*lang=('yaml'|"yml"))(?![^/>]*/>\s*$)
+    beginCaptures:
+      '1': { name: punctuation.definition.tag.begin.html }
+      '2': { name: entity.name.tag.style.html }
+    end: (</)(config)(>)
+    endCaptures:
+      '1': { name: punctuation.definition.tag.begin.html }
+      '2': { name: entity.name.tag.style.html }
+      '3': { name: punctuation.definition.tag.end.html }
+    patterns:
+      - include: '#tag-stuff'
+      - contentName: source.yaml
+        begin: (>)
+        beginCaptures:
+          '1': { name: punctuation.definition.tag.end.html }
+        end: (?=</config>)
+        patterns:
+          - include: source.yaml
+
+  # config default:json
+  - begin: (<)(config)(?![^/>]*/>\s*$)
+    beginCaptures:
+      '1': { name: punctuation.definition.tag.begin.html }
+      '2': { name: entity.name.tag.style.html }
+    end: (</)(config)(>)
+    endCaptures:
+      '1': { name: punctuation.definition.tag.begin.html }
+      '2': { name: entity.name.tag.style.html }
+      '3': { name: punctuation.definition.tag.end.html }
+    patterns:
+      - include: '#tag-stuff'
+      - contentName: source.json
+        begin: (>)
+        beginCaptures:
+          '1': { name: punctuation.definition.tag.end.html }
+        end: (?=</config>)
+        patterns:
+          - include: source.json
+
 # Repository
 repository:
   entities:

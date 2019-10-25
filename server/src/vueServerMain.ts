@@ -11,7 +11,7 @@ connection.onInitialize(
   async (params: InitializeParams): Promise<InitializeResult> => {
     await vls.init(params);
 
-    console.log('DDX initialized');
+    console.log('ddx plugin server initialized');
 
     return {
       capabilities: vls.capabilities

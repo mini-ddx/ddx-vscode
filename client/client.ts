@@ -49,5 +49,5 @@ export function initializeLanguageClient(vlsModulePath: string, globalSnippetDir
     revealOutputChannelOn: RevealOutputChannelOn.Never
   };
 
-  return new LanguageClient('vetur', 'Vue Language Server', serverOptions, clientOptions);
+  return new LanguageClient('vetur', 'ddx Language Server', serverOptions, clientOptions);
 }
