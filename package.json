@@ -4,7 +4,7 @@
   "description": "mini program enhancement",
   "author": "yyjazsf <admin@yingyj.com>",
   "icon": "asset/ddx.png",
-  "version": "0.22.4",
+  "version": "1.0.1",
   "publisher": "yyjazsf",
   "scripts": {
     "build:grammar": "tsc -p . && node dist/scripts/build_grammar",
