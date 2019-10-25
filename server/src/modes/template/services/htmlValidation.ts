@@ -28,6 +28,7 @@ export function doESLintValidation(document: TextDocument, engine: CLIEngine): D
 }
 
 export function createLintEngine() {
+  // todo: 优先使用项目的配置文件
   return new CLIEngine({
     useEslintrc: false,
     ...configs.base,

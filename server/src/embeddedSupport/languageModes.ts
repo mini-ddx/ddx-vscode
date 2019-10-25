@@ -77,6 +77,7 @@ export interface LanguageModeRange extends LanguageRange {
 export class LanguageModes {
   private modes: { [k in LanguageId]: LanguageMode } = {
     vue: nullMode,
+    ddx: nullMode,
     pug: nullMode,
     'vue-html': nullMode,
     css: nullMode,

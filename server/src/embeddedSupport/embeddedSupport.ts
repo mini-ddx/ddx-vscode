@@ -4,6 +4,7 @@ import { parseVueDocumentRegions, EmbeddedRegion } from './vueDocumentRegionPars
 export type LanguageId =
   | 'vue'
   | 'vue-html'
+  | 'ddx'
   | 'pug'
   | 'css'
   | 'postcss'

@@ -1,11 +1,11 @@
 {
-  "name": "vetur",
-  "displayName": "Vetur",
-  "description": "Vue tooling for VS Code",
-  "author": "Pine Wu <octref@gmail.com>",
+  "name": "ddx",
+  "displayName": "ddx-vscode",
+  "description": "mini program enhancement",
+  "author": "ying yujia <yyjzry@gmail.com>",
   "icon": "asset/vue.png",
   "version": "0.22.4",
-  "publisher": "octref",
+  "publisher": "yyjazsf",
   "scripts": {
     "build:grammar": "tsc -p . && node dist/scripts/build_grammar",
     "compile": "run-s compile:source copy:snippets",
@@ -91,7 +91,7 @@
           "vue"
         ],
         "extensions": [
-          ".vue"
+          ".ddx"
         ],
         "configuration": "./languages/vue-language-configuration.json"
       },
@@ -225,13 +225,14 @@
           "type": "object",
           "default": {
             "docs": "md",
-            "i18n": "json"
+            "i18n": "json",
+            "config": "json"
           },
           "description": "Mapping from custom block tag name to language name. Used for generating grammar to support syntax highlighting for custom blocks."
         },
         "vetur.validation.template": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Validate vue-html in <template> using eslint-plugin-vue"
         },
         "vetur.validation.style": {

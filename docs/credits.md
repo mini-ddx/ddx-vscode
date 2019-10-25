@@ -1,6 +1,6 @@
 # Credits
 
-Main Developer: [@octref](https://github.com/octref)
+Main Developer: [@yyjazsf](https://github.com/yyjazsf)
 
 Contributors:
 - [@HerringtonDarkholme](https://github.com/HerringtonDarkholme)
