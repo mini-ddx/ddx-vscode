@@ -4,7 +4,7 @@ import { activateLS, sleep, showFile, FILE_LOAD_SLEEP_TIME } from '../helper';
 import { range, getDocUri } from '../util';
 
 describe('Should do documentSymbol', () => {
-  const docUri = getDocUri('client/documentSymbol/Basic.vue');
+  const docUri = getDocUri('client/documentSymbol/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -12,10 +12,10 @@ describe('Should do documentSymbol', () => {
     await sleep(FILE_LOAD_SLEEP_TIME);
   });
 
-  it('shows all documentSymbols for Basic.vue', async () => {
+  it('shows all documentSymbols for Basic.ddx', async () => {
     await testSymbol(docUri, [
       {
-        name: '"Basic.vue"',
+        name: '"Basic.ddx"',
         kind: 1,
         range: range(0, 0, 21, 0),
         children: [

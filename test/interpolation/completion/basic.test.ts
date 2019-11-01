@@ -4,8 +4,8 @@ import { testCompletion, testNoSuchCompletion } from './helper';
 import { CompletionItem, CompletionItemKind, MarkdownString } from 'vscode';
 
 describe('Should autocomplete interpolation for <template>', () => {
-  const templateDocUri = getDocUri('completion/Basic.vue');
-  const parentTemplateDocUri = getDocUri('completion/Parent.vue');
+  const templateDocUri = getDocUri('completion/Basic.ddx');
+  const parentTemplateDocUri = getDocUri('completion/Parent.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -28,7 +28,7 @@ describe('Should autocomplete interpolation for <template>', () => {
     },
     {
       label: 'msg',
-      documentation: new MarkdownString('My msg').appendCodeblock(`msg: 'Vetur means "Winter" in icelandic.'`, 'js'),
+      documentation: new MarkdownString('My msg').appendCodeblock(`msg: 'ddx means "Winter" in icelandic.'`, 'js'),
       kind: CompletionItemKind.Property
     },
     {

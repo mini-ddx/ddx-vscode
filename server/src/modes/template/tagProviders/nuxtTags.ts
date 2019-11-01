@@ -32,8 +32,8 @@ function getNuxtTagsAndAttributes(nuxtVueAppPath: string) {
       nuxtAttributes
     };
   } else {
-    const nuxtTags = require(path.resolve(nuxtVueAppPath, 'vetur/nuxt-tags.json'));
-    const nuxtAttributes = require(path.resolve(nuxtVueAppPath, 'vetur/nuxt-attributes.json'));
+    const nuxtTags = require(path.resolve(nuxtVueAppPath, 'ddx/nuxt-tags.json'));
+    const nuxtAttributes = require(path.resolve(nuxtVueAppPath, 'ddx/nuxt-attributes.json'));
 
     return {
       nuxtTags,

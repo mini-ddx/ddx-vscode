@@ -1,3 +1,3 @@
 # Roadmap
 
-See https://github.com/vuejs/vetur/issues/873.
+See https://github.com/vuejs/ddx/issues/873.

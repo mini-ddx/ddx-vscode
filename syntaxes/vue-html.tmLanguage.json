@@ -5,7 +5,7 @@
   "uuid": "ca2e4260-5d62-45bf-8cf1-d8b5cc19c8f8",
   "patterns": [
     {
-      "include": "source.vue#vue-interpolations"
+      "include": "source.ddx#vue-interpolations"
     },
     {
       "name": "meta.tag.any.html",
@@ -342,7 +342,7 @@
       },
       "patterns": [
         {
-          "include": "source.vue#vue-interpolations"
+          "include": "source.ddx#vue-interpolations"
         },
         {
           "include": "#entities"
@@ -365,7 +365,7 @@
       },
       "patterns": [
         {
-          "include": "source.vue#vue-interpolations"
+          "include": "source.ddx#vue-interpolations"
         },
         {
           "include": "#entities"
@@ -406,7 +406,7 @@
           },
           "patterns": [
             {
-              "include": "source.vue#vue-interpolations"
+              "include": "source.ddx#vue-interpolations"
             },
             {
               "include": "#entities"
@@ -430,7 +430,7 @@
           },
           "patterns": [
             {
-              "include": "source.vue#vue-interpolations"
+              "include": "source.ddx#vue-interpolations"
             },
             {
               "include": "#entities"

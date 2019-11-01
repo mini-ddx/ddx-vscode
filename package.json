@@ -4,7 +4,7 @@
   "description": "mini program enhancement",
   "author": "yyjazsf <admin@yingyj.com>",
   "icon": "asset/ddx.png",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "yyjazsf",
   "scripts": {
     "build:grammar": "tsc -p . && node dist/scripts/build_grammar",
@@ -21,7 +21,8 @@
     "test:int": "node ./dist/test/codeTestRunner.js interpolation",
     "test": "run-s compile test:server test:e2e",
     "docs": "bash ./build/update-docs.sh",
-    "prepare-publish": "./build/release-cleanup.sh"
+    "prepare-publish": "./build/release-cleanup.sh",
+    "package": "npm run build:grammar && npm run prepare-publish && vsce package && cd server && yarn && cd .."
   },
   "husky": {
     "hooks": {
@@ -60,35 +61,35 @@
     "vscode-languageserver-types": "^3.15.0-next.1"
   },
   "activationEvents": [
-    "onLanguage:vue"
+    "onLanguage:ddx"
   ],
   "main": "./dist/client/vueMain",
   "contributes": {
     "commands": [
       {
-        "command": "vetur.generateGrammar",
-        "title": "Vetur: Generate grammar from `vetur.grammar.customBlocks`"
+        "command": "ddx.generateGrammar",
+        "title": "ddx: Generate grammar from `ddx.grammar.customBlocks`"
       },
       {
-        "command": "vetur.showCorrespondingVirtualFile",
-        "title": "Vetur: Show corresponding virtual file and sourcemap"
+        "command": "ddx.showCorrespondingVirtualFile",
+        "title": "ddx: Show corresponding virtual file and sourcemap"
       },
       {
-        "command": "vetur.openUserScaffoldSnippetFolder",
-        "title": "Vetur: Open user scaffold snippet folder"
+        "command": "ddx.openUserScaffoldSnippetFolder",
+        "title": "ddx: Open user scaffold snippet folder"
       }
     ],
     "breakpoints": [
       {
-        "language": "vue"
+        "language": "ddx"
       }
     ],
     "languages": [
       {
-        "id": "vue",
+        "id": "ddx",
         "aliases": [
-          "Vue",
-          "vue"
+          "ddx",
+          "DDX"
         ],
         "extensions": [
           ".ddx"
@@ -114,8 +115,8 @@
     ],
     "grammars": [
       {
-        "language": "vue",
-        "scopeName": "source.vue",
+        "language": "ddx",
+        "scopeName": "source.ddx",
         "path": "./syntaxes/vue-generated.json",
         "embeddedLanguages": {
           "text.html.basic": "html",
@@ -157,58 +158,58 @@
         "path": "./syntaxes/pug/directives.tmLanguage.json",
         "scopeName": "vue.pug.directives",
         "injectTo": [
-          "source.vue"
+          "source.ddx"
         ]
       },
       {
         "path": "./syntaxes/pug/interpolations.tmLanguage.json",
         "scopeName": "vue.pug.interpolations",
         "injectTo": [
-          "source.vue"
+          "source.ddx"
         ]
       }
     ],
     "configuration": {
-      "title": "Vetur",
+      "title": "ddx",
       "properties": {
-        "vetur.useWorkspaceDependencies": {
+        "ddx.useWorkspaceDependencies": {
           "type": "boolean",
           "default": false,
           "description": "Use dependencies from workspace. Currently only for TypeScript.",
           "scope": "application"
         },
-        "vetur.completion.autoImport": {
+        "ddx.completion.autoImport": {
           "type": "boolean",
           "default": true,
           "description": "Include completion for module export and auto import them"
         },
-        "vetur.completion.scaffoldSnippetSources": {
+        "ddx.completion.scaffoldSnippetSources": {
           "type": "object",
           "default": {
             "workspace": "💼",
             "user": "🗒️",
-            "vetur": "✌"
+            "ddx": "✌"
           },
           "properties": {
             "workspace": {
               "type": "string",
               "default": "💼",
-              "description": "Show Scaffold Snippets from `<WORKSPACE>/.vscode/vetur/snippets`."
+              "description": "Show Scaffold Snippets from `<WORKSPACE>/.vscode/ddx/snippets`."
             },
             "user": {
               "type": "string",
               "default": "🗒️",
-              "description": "Show Scaffold Snippets from `<USER-DATA-DIR>/User/snippets/vetur`."
+              "description": "Show Scaffold Snippets from `<USER-DATA-DIR>/User/snippets/ddx`."
             },
-            "vetur": {
+            "ddx": {
               "type": "string",
               "default": "✌",
-              "description": "Show Scaffold Snippets bundled in Vetur."
+              "description": "Show Scaffold Snippets bundled in ddx."
             }
           },
-          "description": "Where Vetur source Scaffold Snippets from and how to indicate them. Set a source to \"\" to disable it.\n\n- workspace: `<WORKSPACE>/.vscode/vetur/snippets`.\n- user: `<USER-DATA-DIR>/User/snippets/vetur`.\n- vetur: Bundled in Vetur.\n\nThe default is:\n```\n\"vetur.completion.scaffoldSnippetSources\": {\n  \"workspace\": \"💼\",\n  \"user\": \"🗒️\",\n  \"vetur\": \"✌\"\n}\n```\n\nAlternatively, you can do:\n\n```\n\"vetur.completion.scaffoldSnippetSources\": {\n  \"workspace\": \"(W)\",\n  \"user\": \"(U)\",\n  \"vetur\": \"(V)\"\n}\n```\n\nRead more: https://vuejs.github.io/vetur/snippet.html."
+          "description": "Where ddx source Scaffold Snippets from and how to indicate them. Set a source to \"\" to disable it.\n\n- workspace: `<WORKSPACE>/.vscode/ddx/snippets`.\n- user: `<USER-DATA-DIR>/User/snippets/ddx`.\n- ddx: Bundled in ddx.\n\nThe default is:\n```\n\"ddx.completion.scaffoldSnippetSources\": {\n  \"workspace\": \"💼\",\n  \"user\": \"🗒️\",\n  \"ddx\": \"✌\"\n}\n```\n\nAlternatively, you can do:\n\n```\n\"ddx.completion.scaffoldSnippetSources\": {\n  \"workspace\": \"(W)\",\n  \"user\": \"(U)\",\n  \"ddx\": \"(V)\"\n}\n```\n\nRead more: https://vuejs.github.io/ddx/snippet.html."
         },
-        "vetur.completion.tagCasing": {
+        "ddx.completion.tagCasing": {
           "type": "string",
           "default": "kebab",
           "enum": [
@@ -221,7 +222,7 @@
           ],
           "description": "Casing conversion for tag completion"
         },
-        "vetur.grammar.customBlocks": {
+        "ddx.grammar.customBlocks": {
           "type": "object",
           "default": {
             "docs": "md",
@@ -229,37 +230,37 @@
           },
           "description": "Mapping from custom block tag name to language name. Used for generating grammar to support syntax highlighting for custom blocks."
         },
-        "vetur.validation.template": {
+        "ddx.validation.template": {
           "type": "boolean",
           "default": false,
           "description": "Validate vue-html in <template> using eslint-plugin-vue"
         },
-        "vetur.validation.style": {
+        "ddx.validation.style": {
           "type": "boolean",
           "default": true,
           "description": "Validate css/scss/less/postcss in <style>"
         },
-        "vetur.validation.script": {
+        "ddx.validation.script": {
           "type": "boolean",
           "default": true,
           "description": "Validate js/ts in <script>"
         },
-        "vetur.format.enable": {
+        "ddx.format.enable": {
           "type": "boolean",
           "default": true,
-          "description": "Enable/disable the Vetur document formatter."
+          "description": "Enable/disable the ddx document formatter."
         },
-        "vetur.format.options.tabSize": {
+        "ddx.format.options.tabSize": {
           "type": "number",
           "default": 2,
           "description": "Number of spaces per indentation level. Inherited by all formatters."
         },
-        "vetur.format.options.useTabs": {
+        "ddx.format.options.useTabs": {
           "type": "boolean",
           "default": false,
           "description": "Use tabs for indentation. Inherited by all formatters."
         },
-        "vetur.format.defaultFormatter.html": {
+        "ddx.format.defaultFormatter.html": {
           "type": "string",
           "default": "prettyhtml",
           "enum": [
@@ -276,7 +277,7 @@
           ],
           "description": "Default formatter for <template> region"
         },
-        "vetur.format.defaultFormatter.css": {
+        "ddx.format.defaultFormatter.css": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -289,7 +290,7 @@
           ],
           "description": "Default formatter for <style> region"
         },
-        "vetur.format.defaultFormatter.postcss": {
+        "ddx.format.defaultFormatter.postcss": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -302,7 +303,7 @@
           ],
           "description": "Default formatter for <style lang='postcss'> region"
         },
-        "vetur.format.defaultFormatter.scss": {
+        "ddx.format.defaultFormatter.scss": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -315,7 +316,7 @@
           ],
           "description": "Default formatter for <style lang='scss'> region"
         },
-        "vetur.format.defaultFormatter.less": {
+        "ddx.format.defaultFormatter.less": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -328,7 +329,7 @@
           ],
           "description": "Default formatter for <style lang='less'> region"
         },
-        "vetur.format.defaultFormatter.stylus": {
+        "ddx.format.defaultFormatter.stylus": {
           "type": "string",
           "default": "stylus-supremacy",
           "enum": [
@@ -341,7 +342,7 @@
           ],
           "description": "Default formatter for <style lang='stylus'> region"
         },
-        "vetur.format.defaultFormatter.js": {
+        "ddx.format.defaultFormatter.js": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -358,7 +359,7 @@
           ],
           "description": "Default formatter for <script> region"
         },
-        "vetur.format.defaultFormatter.ts": {
+        "ddx.format.defaultFormatter.ts": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -374,12 +375,12 @@
           ],
           "description": "Default formatter for <script> region"
         },
-        "vetur.format.defaultFormatterOptions": {
+        "ddx.format.defaultFormatterOptions": {
           "type": "object",
           "properties": {
             "prettier": {
               "type": "object",
-              "description": "Global prettier config used by prettier formatter. Used by `prettier` and `prettier-eslint`.\n\nVetur will prefer a prettier config file at home directory if one exists.",
+              "description": "Global prettier config used by prettier formatter. Used by `prettier` and `prettier-eslint`.\n\nddx will prefer a prettier config file at home directory if one exists.",
               "properties": {}
             },
             "prettyhtml": {
@@ -426,17 +427,17 @@
           },
           "description": "Options for all default formatters"
         },
-        "vetur.format.styleInitialIndent": {
+        "ddx.format.styleInitialIndent": {
           "type": "boolean",
           "default": false,
           "description": "Whether to have initial indent for <style> region"
         },
-        "vetur.format.scriptInitialIndent": {
+        "ddx.format.scriptInitialIndent": {
           "type": "boolean",
           "default": false,
           "description": "Whether to have initial indent for <script> region"
         },
-        "vetur.trace.server": {
+        "ddx.trace.server": {
           "type": "string",
           "enum": [
             "off",
@@ -446,17 +447,17 @@
           "default": "off",
           "description": "Traces the communication between VS Code and Vue Language Server."
         },
-        "vetur.dev.vlsPath": {
+        "ddx.dev.vlsPath": {
           "type": "string",
-          "description": "Path to VLS for Vetur developers. There are two ways of using it. \n\n1. Clone vuejs/vetur from GitHub, build it and point it to the ABSOLUTE path of `/server`.\n2. `yarn global add vue-language-server` and point Vetur to the installed location (`yarn global dir` + node_modules/vue-language-server)",
+          "description": "Path to VLS for ddx developers. There are two ways of using it. \n\n1. Clone vuejs/ddx from GitHub, build it and point it to the ABSOLUTE path of `/server`.\n2. `yarn global add ddx-language-server` and point ddx to the installed location (`yarn global dir` + node_modules/ddx-language-server)",
           "scope": "machine"
         },
-        "vetur.dev.vlsPort": {
+        "ddx.dev.vlsPort": {
           "type": "number",
           "description": "The port that VLS listens to. Can be used for attaching to the VLS Node process for debugging / profiling.",
           "default": -1
         },
-        "vetur.dev.logLevel": {
+        "ddx.dev.logLevel": {
           "type": "string",
           "description": "Log level for VLS",
           "default": "INFO",
@@ -469,7 +470,7 @@
             "Log info and debug messages."
           ]
         },
-        "vetur.experimental.templateInterpolationService": {
+        "ddx.experimental.templateInterpolationService": {
           "type": "boolean",
           "default": false,
           "description": "Enable template interpolation service that offers diagnostics / hover / definition / references."

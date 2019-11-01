@@ -24,7 +24,7 @@ export default {
       /**
        * My msg
        */
-      msg: 'Vetur means "Winter" in icelandic.'
+      msg: 'ddx means "Winter" in icelandic.'
     }
   },
   computed: {

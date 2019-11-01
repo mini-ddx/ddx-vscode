@@ -5,7 +5,7 @@ import { testDiagnostics } from './helper';
 import { DiagnosticTag } from 'vscode-languageclient';
 
 describe('Should find diagnostics for unused variables', () => {
-  const docUri = getDocUri('client/diagnostics/Unused.vue');
+  const docUri = getDocUri('client/diagnostics/Unused.ddx');
 
   before('activate', async () => {
     await activateLS();

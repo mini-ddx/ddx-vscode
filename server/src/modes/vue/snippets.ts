@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { CompletionItem, InsertTextFormat, CompletionItemKind, MarkupContent } from 'vscode-languageserver-types';
 
-type SnippetSource = 'workspace' | 'user' | 'vetur';
-type SnippetType = 'file' | 'template' | 'style' | 'script' | 'custom';
+type SnippetSource = 'workspace' | 'user' | 'ddx';
+type SnippetType = 'file' | 'template' | 'style' | 'script' | 'config' | 'custom';
 interface Snippet {
   source: SnippetSource;
   name: string;
@@ -15,18 +15,17 @@ interface Snippet {
 export interface ScaffoldSnippetSources {
   workspace: string | undefined;
   user: string | undefined;
-  vetur: string | undefined;
+  ddx: string | undefined;
 }
 
 export class SnippetManager {
   private _snippets: Snippet[] = [];
 
   constructor(workspacePath: string, globalSnippetDir?: string) {
-    const workspaceSnippets = loadAllSnippets(path.resolve(workspacePath, '.vscode/vetur/snippets'), 'workspace');
+    const workspaceSnippets = loadAllSnippets(path.resolve(workspacePath, '.vscode/ddx/snippets'), 'workspace');
     const userSnippets = globalSnippetDir ? loadAllSnippets(globalSnippetDir, 'user') : [];
-    const veturSnippets = loadAllSnippets(path.resolve(__dirname, './veturSnippets'), 'vetur');
-
-    this._snippets = [...workspaceSnippets, ...userSnippets, ...veturSnippets];
+    const ddxSnippets = loadAllSnippets(path.resolve(__dirname, './ddxSnippets'), 'ddx');
+    this._snippets = [...workspaceSnippets, ...userSnippets, ...ddxSnippets];
   }
 
   // Return all snippets in order
@@ -39,7 +38,7 @@ export class SnippetManager {
         let scaffoldLabelPre = '';
         switch (s.type) {
           case 'file':
-            scaffoldLabelPre = '<vue> with';
+            scaffoldLabelPre = '<ddx> with';
             break;
           case 'custom':
             scaffoldLabelPre = `<${s.customTypeName || 'custom'}> with`;
@@ -47,6 +46,7 @@ export class SnippetManager {
           case 'template':
           case 'style':
           case 'script':
+          case 'config':
             scaffoldLabelPre = `<${s.type}>`;
             break;
         }
@@ -73,7 +73,8 @@ function loadAllSnippets(rootDir: string, source: SnippetSource): Snippet[] {
     ...loadSnippetsFromDir(rootDir, source, 'file'),
     ...loadSnippetsFromDir(path.resolve(rootDir, 'template'), source, 'template'),
     ...loadSnippetsFromDir(path.resolve(rootDir, 'style'), source, 'style'),
-    ...loadSnippetsFromDir(path.resolve(rootDir, 'script'), source, 'script')
+    ...loadSnippetsFromDir(path.resolve(rootDir, 'script'), source, 'script'),
+    ...loadSnippetsFromDir(path.resolve(rootDir, 'config'), source, 'config')
   ];
 
   try {
@@ -125,7 +126,7 @@ function computeSortTextPrefix(snippet: Snippet) {
   const s = {
     workspace: 0,
     user: 1,
-    vetur: 2
+    ddx: 2
   }[snippet.source];
 
   const t = {
@@ -133,7 +134,8 @@ function computeSortTextPrefix(snippet: Snippet) {
     template: 'b',
     style: 'c',
     script: 'd',
-    custom: 'e'
+    config: 'e',
+    custom: 'f'
   }[snippet.type];
 
   return s + t;
@@ -149,6 +151,8 @@ function computeDetailsForFileIcon(s: Snippet) {
       return s.name + ' | .css';
     case 'template':
       return s.name + ' | .js';
+    case 'config':
+      return s.name + ' | .json';
     case 'custom':
       return s.name;
   }
@@ -157,6 +161,6 @@ function computeDetailsForFileIcon(s: Snippet) {
 function computeDocumentation(s: Snippet): MarkupContent {
   return {
     kind: 'markdown',
-    value: `\`\`\`vue\n${s.content}\n\`\`\``
+    value: `\`\`\`ddx\n${s.content}\n\`\`\``
   };
 }

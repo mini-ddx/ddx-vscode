@@ -3,7 +3,7 @@ import { testCompletion } from './helper';
 import { position, getDocUri } from '../util';
 
 describe('Should autocomplete for <style>', () => {
-  const templateDocUri = getDocUri('client/completion/style/Basic.vue');
+  const templateDocUri = getDocUri('client/completion/style/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();

@@ -3,9 +3,9 @@ import { position, getDocUri } from '../util';
 import { testCompletion } from './helper';
 
 describe('Should autocomplete for <template>', () => {
-  const templateDocUri = getDocUri('client/completion/template/Basic.vue');
-  const templateFrameworkDocUri = getDocUri('client/completion/template/Framework.vue');
-  const templateQuasarDocUri = getDocUri('client/completion/template/Quasar.vue');
+  const templateDocUri = getDocUri('client/completion/template/Basic.ddx');
+  const templateFrameworkDocUri = getDocUri('client/completion/template/Framework.ddx');
+  const templateQuasarDocUri = getDocUri('client/completion/template/Quasar.ddx');
 
   before('activate', async () => {
     await activateLS();

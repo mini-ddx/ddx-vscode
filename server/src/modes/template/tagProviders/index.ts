@@ -37,6 +37,7 @@ export function getTagProviderSettings(workspacePath: string | null | undefined)
   const settings: CompletionConfiguration = {
     html5: true,
     vue: true,
+    ddx: false, // todo add ddx
     router: false,
     element: false,
     onsen: false,

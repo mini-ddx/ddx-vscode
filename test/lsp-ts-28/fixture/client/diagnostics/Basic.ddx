@@ -6,13 +6,13 @@
 import * as _ from 'lodash'
 
 _.add(1, '5');
-import Item from './Void.vue'
+import Item from './Void.ddx'
 
 export default {
   components: { Ite },
   data () {
     return {
-      ms: 'Vetur means "Winter" in icelandic.'
+      ms: 'ddx means "Winter" in icelandic.'
     }
   },
   compute: {

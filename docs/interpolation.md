@@ -12,12 +12,12 @@ Vue template allows JavaScript-esque expression in four constructs:
 
 Other than the [filter syntax](https://vuejs.org/v2/guide/filters.html), the expression is 100% JavaScript expression.
 
-Vetur now offers completion, diagnostics, hover, jump to definition, find references for these JavaScript snippets.
+ddx now offers completion, diagnostics, hover, jump to definition, find references for these JavaScript snippets.
 
 ## Generic Language Features
 
 ::: warning
-These features are experimental and you need to set `vetur.experimental.templateInterpolationService: true` to enable them. You can also only disable template diagnostics with `vetur.validation.template: false`, although that disables the built-in ESLint checking, too.
+These features are experimental and you need to set `ddx.experimental.templateInterpolationService: true` to enable them. You can also only disable template diagnostics with `ddx.validation.template: false`, although that disables the built-in ESLint checking, too.
 :::
 
 Currently diagnostics, hover, jump to definition and find references are implemented in this way:
@@ -28,11 +28,11 @@ Currently diagnostics, hover, jump to definition and find references are impleme
 - Map results back to original `.vue` file
 
 :::tip
-Use the command "Vetur: Show corresponding virtual file and sourcemap" to understand how the
-templates are represented in Vetur. Useful for bug filing too.
+Use the command "ddx: Show corresponding virtual file and sourcemap" to understand how the
+templates are represented in ddx. Useful for bug filing too.
 :::
 
-If you do find bugs, please [fill an issue](https://github.com/vuejs/vetur/issues).
+If you do find bugs, please [fill an issue](https://github.com/vuejs/ddx/issues).
 
 If you want more details as to how this feature is implemented, I wrote a blog post: [Generic Vue Template Interpolation Language Features
 ](https://blog.matsu.io/generic-vue-template-interpolation-language-features).

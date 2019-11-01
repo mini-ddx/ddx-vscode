@@ -3,7 +3,7 @@ import { position, getDocUri } from '../util';
 import { testCompletion } from './helper';
 
 describe('Should autocomplete for <script>', () => {
-  const scriptDocUri = getDocUri('client/completion/script/Basic.vue');
+  const scriptDocUri = getDocUri('client/completion/script/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();

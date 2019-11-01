@@ -2,7 +2,7 @@ import { TextDocument, Position, Range } from 'vscode-languageserver-types';
 import { parseVueDocumentRegions, EmbeddedRegion } from './vueDocumentRegionParser';
 
 export type LanguageId =
-  | 'vue'
+  | 'ddx'
   | 'vue-html'
   | 'ddx'
   | 'pug'
@@ -95,7 +95,7 @@ function getLanguageAtPosition(document: TextDocument, regions: EmbeddedRegion[]
       break;
     }
   }
-  return 'vue';
+  return 'ddx';
 }
 
 export function getSingleLanguageDocument(

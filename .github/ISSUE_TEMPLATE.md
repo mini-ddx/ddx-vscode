@@ -1,16 +1,16 @@
 - [ ] I have searched through existing issues
-- [ ] I have read through [docs](https://vuejs.github.io/vetur)
-- [ ] I have read [FAQ](https://github.com/vuejs/vetur/blob/master/docs/FAQ.md)
+- [ ] I have read through [docs](https://vuejs.github.io/ddx)
+- [ ] I have read [FAQ](https://github.com/vuejs/ddx/blob/master/docs/FAQ.md)
 
 <!--
   If you are reporting a performance issue, read:
-  https://github.com/vuejs/vetur/blob/master/.github/PERF_ISSUE.md
+  https://github.com/vuejs/ddx/blob/master/.github/PERF_ISSUE.md
 -->
 
 ## Info
 
 - Platform: <!-- Win/macOS/Linux -->
-- Vetur version:
+- ddx version:
 - VS Code version:
 
 ## Problem

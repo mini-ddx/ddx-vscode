@@ -12,7 +12,7 @@ const separator = Array(20)
 const onDidChangeEmitter = new vscode.EventEmitter<vscode.Uri>();
 
 export async function registerVeturTextDocumentProviders() {
-  return vscode.workspace.registerTextDocumentContentProvider('vetur', {
+  return vscode.workspace.registerTextDocumentContentProvider('ddx', {
     onDidChange: onDidChangeEmitter.event,
     provideTextDocumentContent(uri: vscode.Uri) {
       return buildUpContent();
@@ -22,15 +22,15 @@ export async function registerVeturTextDocumentProviders() {
 
 export function generateShowVirtualFileCommand(client: LanguageClient) {
   return async () => {
-    if (!vscode.window.activeTextEditor || !vscode.window.activeTextEditor.document.fileName.endsWith('.vue')) {
+    if (!vscode.window.activeTextEditor || !vscode.window.activeTextEditor.document.fileName.endsWith('.ddx')) {
       return vscode.window.showInformationMessage(
-        'Failed to show virtual file. Make sure the current file is a .vue file.'
+        'Failed to show virtual file. Make sure the current file is a .ddx file.'
       );
     }
 
     const currFileName = vscode.window.activeTextEditor.document.fileName;
     const currFileText = vscode.window.activeTextEditor.document.getText();
-    const uri = vscode.Uri.parse('vetur:' + currFileName);
+    const uri = vscode.Uri.parse('ddx:' + currFileName);
     fileName = currFileName;
 
     const result = await client.sendRequest('$/queryVirtualFileInfo', { fileName, currFileText });

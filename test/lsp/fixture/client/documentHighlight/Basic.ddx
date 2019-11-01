@@ -15,13 +15,13 @@
 
 <script>
 import * as _ from 'lodash'
-import Item from './Basic.Item.vue'
+import Item from './Basic.Item.ddx'
 
 export default {
   components: { Item },
   data () {
     return {
-      msg: 'Vetur means "Winter" in icelandic.'
+      msg: 'ddx means "Winter" in icelandic.'
     }
   },
   computed: {

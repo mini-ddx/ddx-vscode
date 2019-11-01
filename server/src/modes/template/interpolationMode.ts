@@ -36,7 +36,7 @@ export class VueInterpolationMode implements LanguageMode {
   }
 
   doValidation(document: TextDocument): Diagnostic[] {
-    if (!_.get(this.config, ['vetur', 'experimental', 'templateInterpolationService'], true)) {
+    if (!_.get(this.config, ['ddx', 'experimental', 'templateInterpolationService'], true)) {
       return [];
     }
 
@@ -67,7 +67,7 @@ export class VueInterpolationMode implements LanguageMode {
         severity: DiagnosticSeverity.Error,
         message: ts.flattenDiagnosticMessageText(diag.messageText, '\n'),
         code: diag.code,
-        source: 'Vetur'
+        source: 'ddx'
       };
     });
   }
@@ -79,7 +79,7 @@ export class VueInterpolationMode implements LanguageMode {
     contents: MarkedString[];
     range?: Range;
   } {
-    if (!_.get(this.config, ['vetur', 'experimental', 'templateInterpolationService'], true)) {
+    if (!_.get(this.config, ['ddx', 'experimental', 'templateInterpolationService'], true)) {
       return { contents: [] };
     }
 
@@ -118,7 +118,7 @@ export class VueInterpolationMode implements LanguageMode {
   }
 
   findDefinition(document: TextDocument, position: Position): Location[] {
-    if (!_.get(this.config, ['vetur', 'experimental', 'templateInterpolationService'], true)) {
+    if (!_.get(this.config, ['ddx', 'experimental', 'templateInterpolationService'], true)) {
       return [];
     }
 
@@ -166,7 +166,7 @@ export class VueInterpolationMode implements LanguageMode {
   }
 
   findReferences(document: TextDocument, position: Position): Location[] {
-    if (!_.get(this.config, ['vetur', 'experimental', 'templateInterpolationService'], true)) {
+    if (!_.get(this.config, ['ddx', 'experimental', 'templateInterpolationService'], true)) {
       return [];
     }
 
@@ -220,7 +220,7 @@ export class VueInterpolationMode implements LanguageMode {
 
 function getSourceDoc(fileName: string, program: ts.Program): TextDocument {
   const sourceFile = program.getSourceFile(fileName)!;
-  return TextDocument.create(fileName, 'vue', 0, sourceFile.getFullText());
+  return TextDocument.create(fileName, 'ddx', 0, sourceFile.getFullText());
 }
 
 function convertRange(document: TextDocument, span: ts.TextSpan): Range {

@@ -76,7 +76,6 @@ export interface LanguageModeRange extends LanguageRange {
 
 export class LanguageModes {
   private modes: { [k in LanguageId]: LanguageMode } = {
-    vue: nullMode,
     ddx: nullMode,
     pug: nullMode,
     'vue-html': nullMode,
@@ -136,7 +135,7 @@ export class LanguageModes {
       services.dependencyService
     );
 
-    this.modes['vue'] = getVueMode(workspacePath, globalSnippetDir);
+    this.modes['ddx'] = getVueMode(workspacePath, globalSnippetDir);
     this.modes['vue-html'] = vueHtmlMode;
     this.modes['css'] = getCSSMode(this.documentRegions);
     this.modes['postcss'] = getPostCSSMode(this.documentRegions);

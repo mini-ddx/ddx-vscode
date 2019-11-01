@@ -4,7 +4,7 @@ import { activateLS, sleep, showFile, FILE_LOAD_SLEEP_TIME } from '../helper';
 import { position, sameLineRange, getDocUri } from '../util';
 
 describe('Should do documentColor', () => {
-  const docUri = getDocUri('client/documentColor/Basic.vue');
+  const docUri = getDocUri('client/documentColor/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();

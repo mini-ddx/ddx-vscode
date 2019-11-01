@@ -3,8 +3,8 @@ import { testCompletion } from './helper';
 import { position, getDocUri } from '../util';
 
 describe('Should autocomplete for <style>', () => {
-  const docUri = getDocUri('client/completion/style/Basic.vue');
-  const doubleDocUri = getDocUri('client/completion/style/Double.vue');
+  const docUri = getDocUri('client/completion/style/Basic.ddx');
+  const doubleDocUri = getDocUri('client/completion/style/Double.ddx');
 
   before('activate', async () => {
     await activateLS();

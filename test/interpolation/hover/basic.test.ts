@@ -4,7 +4,7 @@ import { activateLS, sleep, showFile, FILE_LOAD_SLEEP_TIME } from '../../lsp/hel
 import { position, sameLineRange, getDocUri } from '../util';
 
 describe('Should do hover interpolation for <template>', () => {
-  const docUri = getDocUri('hover/Basic.vue');
+  const docUri = getDocUri('hover/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();

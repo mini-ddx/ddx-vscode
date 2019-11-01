@@ -92,7 +92,7 @@ export class HTMLMode implements LanguageMode {
     return findDocumentSymbols(document, this.vueDocuments.refreshAndGet(document));
   }
   format(document: TextDocument, range: Range, formattingOptions: FormattingOptions) {
-    return htmlFormat(document, range, this.config.vetur.format as VLSFormatConfig);
+    return htmlFormat(document, range, this.config.ddx.format as VLSFormatConfig);
   }
   findDefinition(document: TextDocument, position: Position) {
     const embedded = this.embeddedDocuments.refreshAndGet(document);

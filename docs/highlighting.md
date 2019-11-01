@@ -1,6 +1,6 @@
 # Syntax Highlighting
 
-Vetur supports syntax highlighting for the following languages:
+ddx supports syntax highlighting for the following languages:
 
 | syntax                   | lang      | required extension                                                                                                                                                 |
 | ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -20,12 +20,12 @@ Vetur supports syntax highlighting for the following languages:
 | `<script lang="coffee">` | `coffee`  |
 
 ::: v-pre
-Vetur supports syntax highlighting for vue directives (e.g. `v-if` or `:attribute=`) and vue interpolations (e.g. `{{variable}}`).
+ddx supports syntax highlighting for vue directives (e.g. `v-if` or `:attribute=`) and vue interpolations (e.g. `{{variable}}`).
 :::
 The supported attribute string literals are `'` and `"`.
-Vetur does not support the `` ` `` backtick literal, as it makes things more complex and there is no observed benefit of using it.
+ddx does not support the `` ` `` backtick literal, as it makes things more complex and there is no observed benefit of using it.
 
-Vetur does not support explicitly adding the default language:
+ddx does not support explicitly adding the default language:
 
 ```vue
 <template lang="html"></template>
@@ -40,10 +40,10 @@ Preprocessors are also not languages, so `<script lang="babel">` would be invali
 
 ## Custom Block
 
-Vetur provides a setting `vetur.grammar.customBlocks` that defaults to:
+ddx provides a setting `ddx.grammar.customBlocks` that defaults to:
 
 ```json
-  "vetur.grammar.customBlocks": {
+  "ddx.grammar.customBlocks": {
     "docs": "md",
     "i18n": "json"
   }
@@ -51,8 +51,8 @@ Vetur provides a setting `vetur.grammar.customBlocks` that defaults to:
 
 You can
 
-- change `vetur.grammar.customBlocks`
-- run the command "Vetur: Generate grammar from `vetur.grammar.customBlocks`
+- change `ddx.grammar.customBlocks`
+- run the command "ddx: Generate grammar from `ddx.grammar.customBlocks`
 - restart VS Code
   to get syntax highlighting for custom blocks.
 

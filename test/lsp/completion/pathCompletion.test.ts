@@ -4,7 +4,7 @@ import { testCompletion } from './helper';
 import { CompletionItemKind } from 'vscode';
 
 describe('Should do path completion for import', () => {
-  const scriptDocUri = getDocUri('client/completion/script/PathCompletion.vue');
+  const scriptDocUri = getDocUri('client/completion/script/PathCompletion.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -19,12 +19,12 @@ describe('Should do path completion for import', () => {
       {
         label: 'Basic',
         kind: CompletionItemKind.File,
-        detail: 'Basic.vue'
+        detail: 'Basic.ddx'
       },
       {
         label: 'Item',
         kind: CompletionItemKind.File,
-        detail: 'Item.vue'
+        detail: 'Item.ddx'
       }
     ]);
   });

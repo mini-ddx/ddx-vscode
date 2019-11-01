@@ -4,7 +4,7 @@ import { position, sameLineRange, range, getDocUri } from '../util';
 import { testDiagnostics } from './helper';
 
 describe('Should find common diagnostics for all regions', () => {
-  const docUri = getDocUri('client/diagnostics/Basic.vue');
+  const docUri = getDocUri('client/diagnostics/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -32,7 +32,7 @@ describe('Should find common diagnostics for all regions', () => {
       {
         range: sameLineRange(8, 17, 29),
         severity: vscode.DiagnosticSeverity.Error,
-        message: "Cannot find module './Void.vue'."
+        message: "Cannot find module './Void.ddx'."
       },
       {
         range: sameLineRange(11, 16, 19),

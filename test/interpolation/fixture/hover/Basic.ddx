@@ -14,7 +14,7 @@
 export default {
   data () {
     return {
-      msg: 'Vetur means "Winter" in icelandic.',
+      msg: 'ddx means "Winter" in icelandic.',
       list: [0, 1, 2]
     }
   }

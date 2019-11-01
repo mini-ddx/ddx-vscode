@@ -80,11 +80,11 @@ export class VLS {
   }
 
   async init(params: InitializeParams) {
-    logger.setLevel(_.get(params.initializationOptions.config, ['vetur', 'dev', 'logLevel'], 'INFO'));
+    logger.setLevel(_.get(params.initializationOptions.config, ['ddx', 'dev', 'logLevel'], 'INFO'));
 
     const workspacePath = params.rootPath;
     if (!workspacePath) {
-      console.error('No workspace path found. Vetur initialization failed.');
+      console.error('No workspace path found. ddx initialization failed.');
       return {
         capabilities: {}
       };
@@ -96,7 +96,7 @@ export class VLS {
     await this.dependencyService.init(
       workspacePath,
       params.initializationOptions
-        ? _.get(params.initializationOptions.config, ['vetur', 'useWorkspaceDependencies'], false)
+        ? _.get(params.initializationOptions.config, ['ddx', 'useWorkspaceDependencies'], false)
         : false
     );
 
@@ -165,10 +165,10 @@ export class VLS {
   }
 
   private async setupDynamicFormatters(settings: any) {
-    if (settings.vetur.format.enable === true) {
+    if (settings.ddx.format.enable === true) {
       if (!this.documentFormatterRegistration) {
         this.documentFormatterRegistration = await this.lspConnection.client.register(DocumentFormattingRequest.type, {
-          documentSelector: ['vue']
+          documentSelector: ['ddx']
         });
       }
     } else {
@@ -206,13 +206,13 @@ export class VLS {
   }
 
   configure(config: any): void {
-    const veturValidationOptions = config.vetur.validation;
-    this.validation['vue-html'] = veturValidationOptions.template;
-    this.validation.css = veturValidationOptions.style;
-    this.validation.postcss = veturValidationOptions.style;
-    this.validation.scss = veturValidationOptions.style;
-    this.validation.less = veturValidationOptions.style;
-    this.validation.javascript = veturValidationOptions.script;
+    const ddxValidationOptions = config.ddx.validation;
+    this.validation['vue-html'] = ddxValidationOptions.template;
+    this.validation.css = ddxValidationOptions.style;
+    this.validation.postcss = ddxValidationOptions.style;
+    this.validation.scss = ddxValidationOptions.style;
+    this.validation.less = ddxValidationOptions.style;
+    this.validation.javascript = ddxValidationOptions.script;
 
     this.languageModes.getAllModes().forEach(m => {
       if (m.configure) {
@@ -451,7 +451,7 @@ export class VLS {
 
   doValidate(doc: TextDocument): Diagnostic[] {
     const diagnostics: Diagnostic[] = [];
-    if (doc.languageId === 'vue') {
+    if (doc.languageId === 'ddx') {
       this.languageModes.getAllLanguageModeRangesInDocument(doc).forEach(lmr => {
         if (lmr.mode.doValidation && this.validation[lmr.mode.getId()]) {
           pushAll(diagnostics, lmr.mode.doValidation(doc));

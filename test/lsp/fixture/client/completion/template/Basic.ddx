@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Item from './Item.vue'
+import Item from './Item.ddx'
 
 export default {
   components: {

@@ -9,24 +9,24 @@ export function getVueMode(workspacePath: string, globalSnippetDir?: string): La
   let scaffoldSnippetSources: ScaffoldSnippetSources = {
     workspace: '💼',
     user: '🗒️',
-    vetur: '✌'
+    ddx: '✌'
   };
 
   return {
     getId() {
-      return 'vue';
+      return 'ddx';
     },
     configure(c) {
       config = c;
-      if (c.vetur.completion['scaffoldSnippetSources']) {
-        scaffoldSnippetSources = c.vetur.completion['scaffoldSnippetSources'];
+      if (c.ddx.completion['scaffoldSnippetSources']) {
+        scaffoldSnippetSources = c.ddx.completion['scaffoldSnippetSources'];
       }
     },
     doComplete(document, position) {
       if (
         scaffoldSnippetSources['workspace'] === '' &&
         scaffoldSnippetSources['user'] === '' &&
-        scaffoldSnippetSources['vetur'] === ''
+        scaffoldSnippetSources['ddx'] === ''
       ) {
         return { isIncomplete: false, items: [] };
       }

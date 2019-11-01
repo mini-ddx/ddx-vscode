@@ -128,7 +128,7 @@ export async function getJavascriptMode(
           message: tsModule.flattenDiagnosticMessageText(diag.messageText, '\n'),
           tags,
           code: diag.code,
-          source: 'Vetur'
+          source: 'ddx'
         };
       });
     },
@@ -146,7 +146,7 @@ export async function getJavascriptMode(
       }
       const completions = service.getCompletionsAtPosition(fileFsPath, offset, {
         includeCompletionsWithInsertText: true,
-        includeCompletionsForModuleExports: _.get(config, ['vetur', 'completion', 'autoImport'])
+        includeCompletionsForModuleExports: _.get(config, ['ddx', 'completion', 'autoImport'])
       });
       if (!completions) {
         return { isIncomplete: false, items: [] };
@@ -225,7 +225,7 @@ export async function getJavascriptMode(
           kind: 'markdown',
           value: tsModule.displayPartsToString(details.documentation)
         };
-        if (details.codeActions && config.vetur.completion.autoImport) {
+        if (details.codeActions && config.ddx.completion.autoImport) {
           const textEdits = convertCodeAction(doc, details.codeActions, firstScriptRegion);
           item.additionalTextEdits = textEdits;
 
@@ -474,16 +474,16 @@ export async function getJavascriptMode(
 
       const defaultFormatter =
         scriptDoc.languageId === 'javascript'
-          ? config.vetur.format.defaultFormatter.js
-          : config.vetur.format.defaultFormatter.ts;
+          ? config.ddx.format.defaultFormatter.js
+          : config.ddx.format.defaultFormatter.ts;
 
       if (defaultFormatter === 'none') {
         return [];
       }
 
       const parser = scriptDoc.languageId === 'javascript' ? 'babylon' : 'typescript';
-      const needInitialIndent = config.vetur.format.scriptInitialIndent;
-      const vlsFormatConfig: VLSFormatConfig = config.vetur.format;
+      const needInitialIndent = config.ddx.format.scriptInitialIndent;
+      const vlsFormatConfig: VLSFormatConfig = config.ddx.format;
 
       if (
         defaultFormatter === 'prettier' ||
@@ -582,7 +582,7 @@ function collectRefactoringCommands(
   }
   for (const action of actions) {
     result.push({
-      command: 'vetur.chooseTypeScriptRefactoring',
+      command: 'ddx.chooseTypeScriptRefactoring',
       title: action.description,
       arguments: [action]
     });
@@ -603,7 +603,7 @@ function collectQuickFixCommands(
 function createApplyCodeActionCommand(title: string, uriTextEditMapping: Record<string, TextEdit[]>): Command {
   return {
     title,
-    command: 'vetur.applyWorkspaceEdits',
+    command: 'ddx.applyWorkspaceEdits',
     arguments: [
       {
         changes: uriTextEditMapping
@@ -727,9 +727,9 @@ function convertOptions(
 
 function getFormatCodeSettings(config: any): ts.FormatCodeSettings {
   return {
-    tabSize: config.vetur.format.options.tabSize,
-    indentSize: config.vetur.format.options.tabSize,
-    convertTabsToSpaces: !config.vetur.format.options.useTabs
+    tabSize: config.ddx.format.options.tabSize,
+    indentSize: config.ddx.format.options.tabSize,
+    convertTabsToSpaces: !config.ddx.format.options.useTabs
   };
 }
 

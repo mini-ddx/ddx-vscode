@@ -17,11 +17,11 @@ Often times, writing a good repro case helps *you* as well. In the process of re
 
 Stack Overflow's guide to writing a [Minimal, Reproducible Example](https://stackoverflow.com/help/minimal-reproducible-example) is worth reading.
 
-In the case of Vetur:
+In the case of ddx:
 
 - Clone https://github.com/octref/veturpack and install its dependencies
-- Open it in Vetur
-- Turn off all Vetur settings
+- Open it in ddx
+- Turn off all ddx settings
 - Turn off all other Vue extensions
 - Make the minimal setting change or code change that can demonstrate your problem
 - Push your commit to a fork
