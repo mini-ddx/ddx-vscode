@@ -1,6 +1,6 @@
 {
   "scopeName": "vue.pug.directives",
-  "injectionSelector": "L:meta.tag.other -text.html.vue-html",
+  "injectionSelector": "L:meta.tag.other -text.html.ddx-html",
   "patterns": [
     {
       "include": "source.ddx#vue-directives"

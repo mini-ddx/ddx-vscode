@@ -34,7 +34,7 @@ export function parseVueTemplate(text: string): string {
   const regions = getVueDocumentRegions(doc);
   const template = regions.getSingleTypeDocument('template');
 
-  if (template.languageId !== 'vue-html') {
+  if (template.languageId !== 'ddx-html') {
     return '';
   }
   const rawText = template.getText();

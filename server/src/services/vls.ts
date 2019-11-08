@@ -44,7 +44,7 @@ import { DependencyService } from './dependencyService';
 import * as _ from 'lodash';
 import { DocumentContext, RefactorAction } from '../types';
 import { DocumentService } from './documentService';
-import { VueHTMLMode } from '../modes/template';
+import { DdxHTMLMode } from '../modes/template';
 import { logger } from '../log';
 
 export class VLS {
@@ -60,7 +60,7 @@ export class VLS {
   private pendingValidationRequests: { [uri: string]: NodeJS.Timer } = {};
   private validationDelayMs = 200;
   private validation: { [k: string]: boolean } = {
-    'vue-html': false, // todo: has no eslint config in project, open it，
+    'ddx-html': false, // todo: has no eslint config in project, open it，
     html: true,
     css: true,
     scss: true,
@@ -160,7 +160,7 @@ export class VLS {
 
   private setupCustomLSPHandlers() {
     this.lspConnection.onRequest('$/queryVirtualFileInfo', ({ fileName, currFileText }) => {
-      return (this.languageModes.getMode('vue-html') as VueHTMLMode).queryVirtualFileInfo(fileName, currFileText);
+      return (this.languageModes.getMode('ddx-html') as DdxHTMLMode).queryVirtualFileInfo(fileName, currFileText);
     });
   }
 
@@ -207,7 +207,7 @@ export class VLS {
 
   configure(config: any): void {
     const ddxValidationOptions = config.ddx.validation;
-    this.validation['vue-html'] = ddxValidationOptions.template;
+    this.validation['ddx-html'] = ddxValidationOptions.template;
     this.validation.css = ddxValidationOptions.style;
     this.validation.postcss = ddxValidationOptions.style;
     this.validation.scss = ddxValidationOptions.style;

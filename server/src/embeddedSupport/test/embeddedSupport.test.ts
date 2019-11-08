@@ -19,7 +19,7 @@ export default {
   test('Basic', () => {
     const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.ddx', 'ddx', 0, src));
 
-    assert.equal(regions[0].languageId, 'vue-html');
+    assert.equal(regions[0].languageId, 'ddx-html');
     assert.equal(regions[1].languageId, 'javascript');
     assert.equal(regions[2].languageId, 'css');
   });
@@ -73,7 +73,7 @@ suite('Double language blocks', () => {
 
     const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.ddx', 'ddx', 0, src));
 
-    assert.equal(regions[0].languageId, 'vue-html');
+    assert.equal(regions[0].languageId, 'ddx-html');
     assert.equal(regions[1].languageId, 'css');
     assert.equal(regions[2].languageId, 'css');
   });
@@ -93,7 +93,7 @@ suite('Double language blocks', () => {
 
     const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.ddx', 'ddx', 0, src));
 
-    assert.equal(regions[0].languageId, 'vue-html');
+    assert.equal(regions[0].languageId, 'ddx-html');
     assert.equal(regions[1].languageId, 'scss');
     assert.equal(regions[2].languageId, 'scss');
   });
@@ -113,7 +113,7 @@ suite('Double language blocks', () => {
 
     const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.ddx', 'ddx', 0, src));
 
-    assert.equal(regions[0].languageId, 'vue-html');
+    assert.equal(regions[0].languageId, 'ddx-html');
     assert.equal(regions[1].languageId, 'scss');
     assert.equal(regions[2].languageId, 'stylus');
   });

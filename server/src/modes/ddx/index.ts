@@ -2,7 +2,7 @@ import { LanguageMode } from '../../embeddedSupport/languageModes';
 import { SnippetManager, ScaffoldSnippetSources } from './snippets';
 import { Range } from 'vscode-css-languageservice';
 
-export function getVueMode(workspacePath: string, globalSnippetDir?: string): LanguageMode {
+export function getDdxMode(workspacePath: string, globalSnippetDir?: string): LanguageMode {
   let config: any = {};
 
   const snippetManager = new SnippetManager(workspacePath, globalSnippetDir);
@@ -38,7 +38,7 @@ export function getVueMode(workspacePath: string, globalSnippetDir?: string): La
         .split('\n');
       const currentLine = lines[position.line];
 
-      const items = snippetManager ? snippetManager.completeSnippets(scaffoldSnippetSources) : [];
+      const items =snippetManager ? snippetManager.completeSnippets(scaffoldSnippetSources) : [];
 
       // If a line starts with `<`, it's probably a starting region tag that can be wholly replaced
       if (currentLine.length > 0 && currentLine.startsWith('<')) {

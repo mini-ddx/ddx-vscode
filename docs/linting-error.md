@@ -9,6 +9,7 @@ ddx has error checking for the following languages:
 - `<template>`: `html`
 - `<style>`: `css`, `scss`, `less`
 - `<script>`: `js`, `ts`
+- `<config>`: `json`, `yaml`
 
 You can selectively turn error checking off by `ddx.validation.[template/style/script]`.
 

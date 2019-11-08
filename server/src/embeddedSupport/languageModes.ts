@@ -23,10 +23,10 @@ import {
 
 import { getLanguageModelCache, LanguageModelCache } from './languageModelCache';
 import { getVueDocumentRegions, VueDocumentRegions, LanguageId, LanguageRange } from './embeddedSupport';
-import { getVueMode } from '../modes/vue';
+import { getDdxMode } from '../modes/ddx';
 import { getCSSMode, getSCSSMode, getLESSMode, getPostCSSMode } from '../modes/style';
 import { getJavascriptMode } from '../modes/script/javascript';
-import { VueHTMLMode } from '../modes/template';
+import { DdxHTMLMode } from '../modes/template';
 import { getStylusMode } from '../modes/style/stylus';
 import { DocumentContext, RefactorAction } from '../types';
 import { VueInfoService } from '../services/vueInfoService';
@@ -78,7 +78,7 @@ export class LanguageModes {
   private modes: { [k in LanguageId]: LanguageMode } = {
     ddx: nullMode,
     pug: nullMode,
-    'vue-html': nullMode,
+    'ddx-html': nullMode,
     css: nullMode,
     postcss: nullMode,
     scss: nullMode,
@@ -120,7 +120,7 @@ export class LanguageModes {
     });
     this.serviceHost = getServiceHost(tsModule, workspacePath, scriptRegionDocuments);
 
-    const vueHtmlMode = new VueHTMLMode(
+    const ddxHTMLMode = new DdxHTMLMode(
       tsModule,
       this.serviceHost,
       this.documentRegions,
@@ -135,8 +135,8 @@ export class LanguageModes {
       services.dependencyService
     );
 
-    this.modes['ddx'] = getVueMode(workspacePath, globalSnippetDir);
-    this.modes['vue-html'] = vueHtmlMode;
+    this.modes['ddx'] = getDdxMode(workspacePath, globalSnippetDir);
+    this.modes['ddx-html'] = ddxHTMLMode;
     this.modes['css'] = getCSSMode(this.documentRegions);
     this.modes['postcss'] = getPostCSSMode(this.documentRegions);
     this.modes['scss'] = getSCSSMode(this.documentRegions);

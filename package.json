@@ -26,8 +26,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test:server"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
@@ -97,11 +96,11 @@
         "configuration": "./languages/vue-language-configuration.json"
       },
       {
-        "id": "vue-html",
+        "id": "ddx-html",
         "aliases": [
-          "Vue-html"
+          "ddx-html"
         ],
-        "configuration": "./languages/vue-html-language-configuration.json"
+        "configuration": "./languages/ddx-html-language-configuration.json"
       },
       {
         "id": "vue-postcss",
@@ -120,7 +119,7 @@
         "path": "./syntaxes/vue-generated.json",
         "embeddedLanguages": {
           "text.html.basic": "html",
-          "text.html.vue-html": "vue-html",
+          "text.html.ddx-html": "ddx-html",
           "text.jade.slm": "slm",
           "text.pug": "jade",
           "text.haml": "haml",
@@ -147,9 +146,9 @@
         "path": "./syntaxes/vue-postcss.json"
       },
       {
-        "language": "vue-html",
-        "scopeName": "text.html.vue-html",
-        "path": "./syntaxes/vue-html.tmLanguage.json",
+        "language": "ddx-html",
+        "scopeName": "text.html.ddx-html",
+        "path": "./syntaxes/ddx-html.tmLanguage.json",
         "embeddedLanguages": {
           "source.js": "javascript"
         }
@@ -233,7 +232,7 @@
         "ddx.validation.template": {
           "type": "boolean",
           "default": false,
-          "description": "Validate vue-html in <template> using eslint-plugin-vue"
+          "description": "Validate ddx-html in <template> using eslint-plugin-vue"
         },
         "ddx.validation.style": {
           "type": "boolean",

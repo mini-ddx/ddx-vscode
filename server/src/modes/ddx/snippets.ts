@@ -46,7 +46,7 @@ export class SnippetManager {
           case 'template':
           case 'style':
           case 'script':
-          case 'config':
+          // case 'config':
             scaffoldLabelPre = `<${s.type}>`;
             break;
         }
@@ -74,12 +74,12 @@ function loadAllSnippets(rootDir: string, source: SnippetSource): Snippet[] {
     ...loadSnippetsFromDir(path.resolve(rootDir, 'template'), source, 'template'),
     ...loadSnippetsFromDir(path.resolve(rootDir, 'style'), source, 'style'),
     ...loadSnippetsFromDir(path.resolve(rootDir, 'script'), source, 'script'),
-    ...loadSnippetsFromDir(path.resolve(rootDir, 'config'), source, 'config')
+    // ...loadSnippetsFromDir(path.resolve(rootDir, 'config'), source, 'config')
   ];
 
   try {
     fs.readdirSync(rootDir).forEach(p => {
-      if (p === 'template' || p === 'style' || p === 'script') {
+      if (p === 'template' || p === 'style' || p === 'script' ) { // || p === 'config'
         return;
       }
       const absPath = path.resolve(rootDir, p);
@@ -151,8 +151,8 @@ function computeDetailsForFileIcon(s: Snippet) {
       return s.name + ' | .css';
     case 'template':
       return s.name + ' | .js';
-    case 'config':
-      return s.name + ' | .json';
+    // case 'config':
+    //   return s.name + ' | .json';
     case 'custom':
       return s.name;
   }

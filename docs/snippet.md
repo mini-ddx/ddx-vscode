@@ -10,12 +10,12 @@ For example, snippet defined for TypeScript will be available in the TypeScript 
 ```
 
 Two exceptions:
-- Use snippets for `vue-html` inside `<template></template>`
+- Use snippets for `ddx-html` inside `<template></template>`
 - Use `vue` snippets outside all regions
 
 ```html
 <template>
-  <!-- Use `vue-html` snippets here -->
+  <!-- Use `ddx-html` snippets here -->
 </template>
 <!-- Use `vue` snippets here -->
 <style>
@@ -29,10 +29,11 @@ They are `vue` snippets and can be used outside language regions.
 
 To start using them, type:
 
-- `<vue` for file scaffolding snippets
+- `<ddx` for file scaffolding snippets
 - `<template` for template scaffolding snippets
 - `<style` for style scaffolding snippets
 - `<script` for script scaffolding snippets
+- `<config` for config scaffolding snippets
 
 Three sources supplement ddx with scaffold snippets:
 

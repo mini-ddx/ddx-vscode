@@ -24,7 +24,7 @@ export class VueInterpolationMode implements LanguageMode {
   constructor(private tsModule: T_TypeScript, private serviceHost: IServiceHost) {}
 
   getId() {
-    return 'vue-html-interpolation';
+    return 'ddx-html-interpolation';
   }
 
   configure(c: any) {

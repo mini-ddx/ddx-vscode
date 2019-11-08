@@ -1,6 +1,6 @@
 {
-  "name": "vue-language-server",
-  "description": "vue-language-server",
+  "name": "ddx-language-server",
+  "description": "ddx-language-server",
   "version": "0.0.62",
   "author": "ying yujia <yyjzry@@gmail.com>",
   "license": "MIT",

@@ -13,7 +13,7 @@ import { doComplete } from '../services/htmlCompletion';
 import { allTagProviders, getEnabledTagProviders } from '../tagProviders';
 
 const setup: CompletionTestSetup = {
-  langId: 'vue-html',
+  langId: 'ddx-html',
   docUri: 'test://test/test.html',
   doComplete(doc, pos) {
     const htmlDoc = parseHTMLDocument(doc);
@@ -457,7 +457,7 @@ suite('HTML Completion', () => {
   test('Settings', function() {
     function configured(settings: CompletionConfiguration) {
       return testDSL({
-        langId: 'vue-html',
+        langId: 'ddx-html',
         docUri: 'test://test/test.html',
         doComplete(doc, pos) {
           const htmlDoc = parseHTMLDocument(doc);

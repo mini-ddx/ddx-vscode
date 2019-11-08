@@ -39,7 +39,7 @@ export class HTMLMode implements LanguageMode {
     this.tagProviderSettings = getTagProviderSettings(workspacePath);
     this.enabledTagProviders = getEnabledTagProviders(this.tagProviderSettings);
     this.embeddedDocuments = getLanguageModelCache<TextDocument>(10, 60, document =>
-      documentRegions.refreshAndGet(document).getSingleLanguageDocument('vue-html')
+      documentRegions.refreshAndGet(document).getSingleLanguageDocument('ddx-html')
     );
     this.vueDocuments = getLanguageModelCache<HTMLDocument>(10, 60, document => parseHTMLDocument(document));
   }

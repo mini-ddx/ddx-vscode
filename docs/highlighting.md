@@ -18,6 +18,9 @@ ddx supports syntax highlighting for the following languages:
 | `<script>`               | `js`      |
 | `<script lang="ts">`     | `ts`      |
 | `<script lang="coffee">` | `coffee`  |
+| `<config>`               | `json`    |
+| `<config lang="yaml">`   | `yaml`    |
+| `<config lang="yml">`    | `yaml`    |
 
 ::: v-pre
 ddx supports syntax highlighting for vue directives (e.g. `v-if` or `:attribute=`) and vue interpolations (e.g. `{{variable}}`).

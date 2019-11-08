@@ -3,7 +3,7 @@ import { parseVueDocumentRegions, EmbeddedRegion } from './vueDocumentRegionPars
 
 export type LanguageId =
   | 'ddx'
-  | 'vue-html'
+  | 'ddx-html'
   | 'ddx'
   | 'pug'
   | 'css'
@@ -14,6 +14,8 @@ export type LanguageId =
   | 'javascript'
   | 'typescript'
   | 'tsx';
+// | 'json'
+// | 'yaml'
 
 export interface LanguageRange extends Range {
   languageId: LanguageId;
@@ -51,12 +53,13 @@ export interface VueDocumentRegions {
   getImportedScripts(): string[];
 }
 
-type RegionType = 'template' | 'script' | 'style' | 'custom';
+type RegionType = 'template' | 'script' | 'style' | 'config' | 'custom';
 
 const defaultLanguageIdForBlockTypes: { [type: string]: string } = {
-  template: 'vue-html',
+  template: 'ddx-html',
   script: 'javascript',
-  style: 'css'
+  style: 'css',
+  config: 'json'
 };
 
 export function getVueDocumentRegions(document: TextDocument): VueDocumentRegions {
