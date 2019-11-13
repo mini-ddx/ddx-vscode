@@ -49,15 +49,15 @@ Try it out with [Veturpack](https://github.com/octref/veturpack)!
 
 ## FAQ
 
-[FAQ](https://github.com/vuejs/ddx/blob/master/docs/FAQ.md)
+[FAQ](https://github.com/vuejs/vetur/blob/master/docs/FAQ.md)
 
 ## Roadmap
 
-See [#873](https://github.com/vuejs/ddx/issues/873).
+See [#873](https://github.com/vuejs/vetur/issues/873).
 
 ## Contribution
 
-See [CONTRIBUTING.md](https://github.com/vuejs/ddx/blob/master/.github/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/vuejs/vetur/blob/master/.github/CONTRIBUTING.md)
 
 ## License
 

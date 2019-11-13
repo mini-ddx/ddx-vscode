@@ -2,14 +2,7 @@ import { IHTMLTagProvider } from './common';
 import { getHTML5TagProvider } from './htmlTags';
 import { getVueTagProvider } from './vueTags';
 // import { getRouterTagProvider } from './routerTags';
-import {
-  // elementTagProvider,
-  // onsenTagProvider,
-  // bootstrapTagProvider,
-  // buefyTagProvider,
-  // gridsomeTagProvider,
-  getRuntimeTagProvider
-} from './externalTagProviders';
+import { getRuntimeTagProvider, antUITagProvider, dingUITagProvider } from './externalTagProviders';
 export { getComponentInfoTagProvider as getComponentTags } from './componentInfoTagProvider';
 export { IHTMLTagProvider } from './common';
 
@@ -21,11 +14,6 @@ export let allTagProviders: IHTMLTagProvider[] = [
   getHTML5TagProvider(),
   getVueTagProvider()
   // getRouterTagProvider(),
-  // elementTagProvider,
-  // onsenTagProvider,
-  // bootstrapTagProvider,
-  // buefyTagProvider,
-  // gridsomeTagProvider
 ];
 
 export interface CompletionConfiguration {
@@ -36,20 +24,19 @@ export function getTagProviderSettings(workspacePath: string | null | undefined)
   const settings: CompletionConfiguration = {
     html5: true,
     ddx: true, // todo add ddx
-    router: false,
-    element: false,
-    onsen: false,
-    bootstrap: false,
-    buefy: false,
-    vuetify: false,
-    quasar: false, // Quasar v1+
-    'quasar-framework': false, // Quasar pre v1
-    nuxt: false,
-    gridsome: false
+    // 小程序
+    'dingui-mini': false,
+    'mini-antui': false
   };
   if (!workspacePath) {
     return settings;
   }
+
+  const autoAddMap: { [packageName: string]: any } = {
+    'mini-antui': antUITagProvider,
+    'dingui-mini': dingUITagProvider
+  };
+
   try {
     const packagePath = ts.findConfigFile(workspacePath, ts.sys.fileExists, 'package.json');
     if (!packagePath) {
@@ -60,11 +47,11 @@ export function getTagProviderSettings(workspacePath: string | null | undefined)
     const dependencies = packageJson.dependencies || {};
     // const devDependencies = packageJson.devDependencies || {};
 
-    // if (dependencies['buefy']) {
-    //   settings['buefy'] = true;
-    // }
-
     for (const dep in dependencies) {
+      if (autoAddMap[dep] !== undefined) {
+        allTagProviders.push(autoAddMap[dep]);
+        continue;
+      }
       const runtimePkgPath = ts.findConfigFile(
         workspacePath,
         ts.sys.fileExists,
