@@ -2,7 +2,12 @@ import { IHTMLTagProvider } from './common';
 import { getHTML5TagProvider } from './htmlTags';
 import { getVueTagProvider } from './vueTags';
 // import { getRouterTagProvider } from './routerTags';
-import { getRuntimeTagProvider, antUITagProvider, dingUITagProvider } from './externalTagProviders';
+import {
+  getRuntimeTagProvider,
+  alipayTagsTagProvider,
+  antUITagProvider,
+  dingUITagProvider
+} from './externalTagProviders';
 export { getComponentInfoTagProvider as getComponentTags } from './componentInfoTagProvider';
 export { IHTMLTagProvider } from './common';
 
@@ -33,9 +38,13 @@ export function getTagProviderSettings(workspacePath: string | null | undefined)
   }
 
   const autoAddMap: { [packageName: string]: any } = {
-    'mini-antui': antUITagProvider,
-    'dingui-mini': dingUITagProvider
+    // 'alipay': alipayTagsTagProvider, // 原生 支付宝小程序
+    // 'mini-antui': antUITagProvider,
+    // 'dingui-mini': dingUITagProvider
   };
+
+  // 需要判断 是否支付宝小程序
+  allTagProviders.push(alipayTagsTagProvider);
 
   try {
     const packagePath = ts.findConfigFile(workspacePath, ts.sys.fileExists, 'package.json');

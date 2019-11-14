@@ -15,29 +15,13 @@ const u = undefined;
 const vueDirectives = [
   genAttribute('v-text', u, 'Updates the element’s `textContent`.'),
   genAttribute('v-html', u, 'Updates the element’s `innerHTML`. XSS prone.'),
-  genAttribute(
-    'v-show',
-    u,
-    'Toggle’s the element’s `display` CSS property based on the truthy-ness of the expression value.'
-  ),
-  genAttribute('v-if', u, 'Conditionally renders the element based on the truthy-ness of the expression value.'),
-  genAttribute('v-else', 'v', 'Denotes the “else block” for `v-if` or a `v-if`/`v-else-if` chain.'),
-  genAttribute('v-else-if', u, 'Denotes the “else if block” for `v-if`. Can be chained.'),
-  genAttribute('v-for', u, 'Renders the element or template block multiple times based on the source data.'),
-  genAttribute('v-on', u, 'Attaches an event listener to the element.'),
   genAttribute('v-bind', u, 'Dynamically binds one or more attributes, or a component prop to an expression.'),
   genAttribute('v-model', u, 'Creates a two-way binding on a form input element or a component.'),
   genAttribute('v-pre', 'v', 'Skips compilation for this element and all its children.'),
   genAttribute('v-cloak', 'v', 'Indicates Vue instance for this element has NOT finished compilation.'),
   genAttribute('v-once', 'v', 'Render the element and component once only.'),
   genAttribute('key', u, 'Hint at VNodes identity for VDom diffing, e.g. list rendering'),
-  genAttribute('ref', u, 'Register a reference to an element or a child component.'),
-  genAttribute(
-    'slot',
-    u,
-    'Used on content inserted into child components to indicate which named slot the content belongs to.'
-  ),
-  genAttribute('slot-scope', u, 'the name of a temporary variable that holds the props object passed from the child')
+  genAttribute('ref', u, 'Register a reference to an element or a child component.')
 ];
 
 const transitionProps = [

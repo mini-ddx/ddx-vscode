@@ -6,13 +6,16 @@ import { IHTMLTagProvider, Priority } from './common';
 
 // todo: add mini program tag and Attributes
 
+import * as alipayTags from './alipay/tags.json';
+import * as alipayAttributes from './alipay/attributes.json';
 import * as dingUITags from './dingui/tags.json';
 import * as dingUIAttributes from './dingui/attributes.json';
-import * as antUITags from './dingui/tags.json';
-import * as antUIAttributes from './dingui/attributes.json';
+import * as antUITags from './antui/tags.json';
+import * as antUIAttributes from './antui/attributes.json';
 
-export const dingUITagProvider = getExternalTagProvider('element', dingUITags, dingUIAttributes);
-export const antUITagProvider = getExternalTagProvider('element', antUITags, antUIAttributes);
+export const alipayTagsTagProvider = getExternalTagProvider('alipay', alipayTags, alipayAttributes);
+export const dingUITagProvider = getExternalTagProvider('dingui-mini', dingUITags, dingUIAttributes);
+export const antUITagProvider = getExternalTagProvider('mini-antui', antUITags, antUIAttributes);
 
 export function getRuntimeTagProvider(workspacePath: string, pkg: any): IHTMLTagProvider | null {
   if (!pkg['@ddxjs/cli']) {
