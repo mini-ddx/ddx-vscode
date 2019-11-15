@@ -4,9 +4,9 @@ import { getVueTagProvider } from './vueTags';
 // import { getRouterTagProvider } from './routerTags';
 import {
   getRuntimeTagProvider,
-  alipayTagsTagProvider,
-  antUITagProvider,
-  dingUITagProvider
+  alipayTagProvider
+  // antUITagProvider,
+  // dingUITagProvider
 } from './externalTagProviders';
 export { getComponentInfoTagProvider as getComponentTags } from './componentInfoTagProvider';
 export { IHTMLTagProvider } from './common';
@@ -29,6 +29,7 @@ export function getTagProviderSettings(workspacePath: string | null | undefined)
   const settings: CompletionConfiguration = {
     html5: true,
     ddx: true, // todo add ddx
+    aliay: false,
     // 小程序
     'dingui-mini': false,
     'mini-antui': false
@@ -44,7 +45,8 @@ export function getTagProviderSettings(workspacePath: string | null | undefined)
   };
 
   // 需要判断 是否支付宝小程序
-  allTagProviders.push(alipayTagsTagProvider);
+  allTagProviders.push(alipayTagProvider);
+  settings.alipay = true;
 
   try {
     const packagePath = ts.findConfigFile(workspacePath, ts.sys.fileExists, 'package.json');

@@ -7,7 +7,7 @@ export default {
   swiper: {
     subtags: ['swiper-item'],
     attributes: ['autoplay', 'indicator-dots'],
-    defaults: [],
+    defaults: ['autoplay'],
     description: '滑块视图容器。其中，只可放置 swiper-item，否则会导致未定义的行为。'
   },
   'swiper-item': {
