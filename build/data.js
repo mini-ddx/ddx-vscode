@@ -28,9 +28,9 @@ function getAttrs(list, namespace) {
   console.log(JSON.stringify(attr, 4));
 }
 
-const table = document.querySelector('table');
-const list = [...table.querySelectorAll('tbody > tr')];
+var table = document.querySelector('table');
+var list = [...table.querySelectorAll('tbody > tr')];
 
 console.log(getAttrsCol(list).join('\n'));
 
-getAttrs(list, namespace);
+getAttrs(list, '');

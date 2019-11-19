@@ -361,6 +361,375 @@ export const icon = {
   }
 };
 
+export const progress = {
+  'progress/percent': {
+    description: '百分比(0~100)'
+  },
+  'progress/show-info': {
+    description: '在右侧显示百分比值'
+  },
+  'progress/stroke-width': {
+    description: '线的粗细，单位 px'
+  },
+  'progress/active-color': {
+    description: '已选择的进度条颜色'
+  },
+  'progress/background-color': {
+    description: '未选择的进度条颜色'
+  },
+  'progress/active': {
+    description: '从左往右是否进行加载动画'
+  }
+};
+
+export const richText = {
+  'rich-text/nodes': {
+    description: '节点列表'
+  }
+};
+
+export const button = {
+  'progress/percent': {
+    description: '百分比(0~100)'
+  },
+  'progress/show-info': {
+    description: '在右侧显示百分比值'
+  },
+  'progress/stroke-width': {
+    description: '线的粗细，单位 px'
+  },
+  'progress/active-color': {
+    description: '已选择的进度条颜色'
+  },
+  'progress/background-color': {
+    description: '未选择的进度条颜色'
+  },
+  'progress/active': {
+    description: '从左往右是否进行加载动画'
+  }
+};
+
+export const form = {
+  'form/report-submit': {
+    description:
+      "onSubmit 回调是否返回 formId，用于发送 模板消息，使用前可使用 canIUse ('form.report-submit')判断是否支持",
+    version: '>=1.3.0'
+  },
+  'form/onSubmit': {
+    description:
+      "携带 form 中的数据触发 submit 事件，event.detail = {value : {'slider': '80'}, buttonTarget: {'dataset': 'buttonDataset'} } (可以在 submit 按钮上添加自定义参数)",
+    version: '>=buttonTarget 1.7.0 开始支持'
+  },
+  'form/onReset': {
+    description: '表单重置时会触发 reset 事件'
+  }
+};
+
+export const label = { 'label/for': { description: '绑定组件的 id' } };
+
+export const input = {
+  'input/value': {
+    description: '初始内容'
+  },
+  'input/name': {
+    description: '组件名字，用于表单提交获取数据'
+  },
+  'input/type': {
+    description:
+      'input 的类型，有效值：text、 number、 idcard、 digit(可以唤起带有小数点的数字键盘)、numberpad、digitpad、 idcardpad。',
+    version:
+      '>=numberpad、digitpad、 idcardpad 基础库 1.13.0 客户端 10.1.50，可通过 my.canIUse(input.type.numberpad)来检测。'
+  },
+  'input/password': {
+    description: '是否是密码类型'
+  },
+  'input/placeholder': {
+    description: '占位符'
+  },
+  'input/placeholder-style': {
+    description: '指定 placeholder 的样式，可设置间距',
+    version: '>=1.6.0'
+  },
+  'input/placeholder-class': {
+    description: '指定 placeholder 的样式类',
+    version: '>=1.6.0'
+  },
+  'input/disabled': {
+    description: '是否禁用'
+  },
+  'input/maxlength': {
+    description: '最大长度'
+  },
+  'input/focus': {
+    description: '获取焦点'
+  },
+  'input/confirm-type': {
+    description:
+      '设置键盘右下角按钮的文字，有效值：done（显示“完成”）、go（显示“前往”）、next（显示“下一个”）、search（显示“搜索”）、send（显示“发送”），平台不同显示的文字略有差异。注意：只有在 type=text 时有效',
+    version: '>=1.7.0'
+  },
+  'input/confirm-hold': {
+    description: '点击键盘右下角按钮时是否保持键盘不收起状态',
+    version: '>=1.7.0'
+  },
+  'input/cursor': {
+    description: '指定 focus 时的光标位置'
+  },
+  'input/selection-start': {
+    description: '获取光标时，选中文本对应的焦点光标起始位置，需要和 selection-end 配合使用',
+    version: '>=1.7.0'
+  },
+  'input/selection-end': {
+    description: '获取光标时，选中文本对应的焦点光标结束位置，需要和 selection-start 配合使用',
+    version: '>=1.7.0'
+  },
+  'input/randomNumber': {
+    description: '当 type 为 number, digit, idcard 数字键盘是否随机排列',
+    version: '>=1.9.0'
+  },
+  'input/controlled': {
+    description: '是否为受控组件。为 true 时，value 内容会完全受 setData 控制',
+    version: '>=1.8.0'
+  },
+  'input/onInput': {
+    description: '键盘输入时触发 input 事件，event.detail = {value: value}'
+  },
+  'input/onConfirm': {
+    description: '点击键盘完成时触发，event.detail = {value: value}'
+  },
+  'input/onFocus': {
+    description: '聚焦时触发，event.detail = {value: value}'
+  },
+  'input/onBlur': {
+    description: '失去焦点时触发（仅支持真机），event.detail = {value: value}'
+  }
+};
+
+export const textarea = {
+  'textarea/name': {
+    description: '组件名字，用于表单提交获取数据'
+  },
+  'textarea/value': {
+    description: '初始内容'
+  },
+  'textarea/placeholder': {
+    description: '占位符'
+  },
+  'textarea/placeholder-style': {
+    description: '指定 placeholder 的样式',
+    version: '>=1.6.0'
+  },
+  'textarea/placeholder-class': {
+    description: '指定 placeholder 的样式类',
+    version: '>=1.6.0'
+  },
+  'textarea/disabled': {
+    description: '是否禁用'
+  },
+  'textarea/maxlength': {
+    description: '最大长度，当设置为-1时不限制最大长度'
+  },
+  'textarea/focus': {
+    description: '获取焦点'
+  },
+  'textarea/auto-height': {
+    description: '是否自动增高'
+  },
+  'textarea/show-count': {
+    description: '是否渲染字数统计功能（是否删除默认计数器/是否显示字数统计）',
+    version: '>=1.8.0'
+  },
+  'textarea/controlled': {
+    description: '是否为受控组件。为 true 时，value 内容会完全受 setData 控制',
+    version: '>=1.8.0'
+  },
+  'textarea/onInput': {
+    description: '键盘输入时触发，event.detail = {value: value}，可以直接 return 一个字符串以替换输入框的内容'
+  },
+  'textarea/onFocus': {
+    description: '输入框聚焦时触发 event.detail = {value: value}'
+  },
+  'textarea/onBlur': {
+    description: '输入框失去焦点时触发，event.detail = {value: value}'
+  },
+  'textarea/onConfirm': {
+    description: '点击完成时触发，event.detail = {value: value}'
+  }
+};
+
+export const radioGroup = {
+  'radio-group/onChange': { description: '选中项发生变化时触发，event.detail = {value: 选中项 radio 的 value}' },
+  'radio-group/name': { description: '组件名字，用于表单提交获取数据' }
+};
+
+export const radio = {
+  'radio/value': {
+    description: '组件值，选中时 change 事件会携带的 value'
+  },
+  'radio/checked': {
+    description: '当前是否选中'
+  },
+  'radio/disabled': {
+    description: '是否禁用'
+  },
+  'radio/color': {
+    description: 'radio 的颜色，同 CSS 色值',
+    version: '>=1.10.0'
+  }
+};
+
+export const checkbox = {
+  'checkbox/value': {
+    description: '组件值，选中时 change 事件会携带的 value'
+  },
+  'checkbox/checked': {
+    description: '当前是否选中，可用来设置默认选中'
+  },
+  'checkbox/disabled': {
+    description: '是否禁用'
+  },
+  'checkbox/onChange': {
+    description: '组件发生改变时触发，detail = {value: 该 checkbox 是否 checked }'
+  },
+  'checkbox/color': {
+    description: 'checkbox 的颜色，同 CSS 色值',
+    version: '>=1.10.0'
+  }
+};
+
+export const checkboxGroup = {
+  'checkbox-group/name': { description: '组件名字，用于表单提交获取数据' },
+  'checkbox-group/onChange': {
+    description: '中选中项发生改变时触发， detail = {value: 选中的 checkbox 项 value 的值} '
+  }
+};
+
+export const _switch = {
+  'switch/name': {
+    description: '组件名字，用于表单提交获取数据'
+  },
+  'switch/checked': {
+    description: '是否选中'
+  },
+  'switch/disabled': {
+    description: '是否禁用'
+  },
+  'switch/color': {
+    description: '组件颜色，同 CSS 色值',
+    version: '>=1.10.0'
+  },
+  'switch/onChange': {
+    description: 'checked 改变时触发，event.detail={ value:checked}'
+  },
+  'switch/controlled': {
+    description: '是否为受控组件，为 true 时，checked 会完全受 setData 控制',
+    version: '>=1.8.0'
+  }
+};
+
+export const slider = {
+  'slider/name': {
+    description: '组件名字，用于表单提交获取数据'
+  },
+  'slider/min': {
+    description: '最小值'
+  },
+  'slider/max': {
+    description: '最大值',
+    version: '>='
+  },
+  'slider/step': {
+    description: '步长，值必须大于 0，并可被(max - min)整除'
+  },
+  'slider/disabled': {
+    description: '是否禁用'
+  },
+  'slider/value': {
+    description: '当前取值'
+  },
+  'slider/show-value': {
+    description: '是否显示当前 value'
+  },
+  'slider/active-color': {
+    description: '已选择的颜色，同 CSS 色值'
+  },
+  'slider/background-color': {
+    description: '背景条颜色，同 CSS 色值'
+  },
+  'slider/track-size': {
+    description: '轨道线条高度'
+  },
+  'slider/handle-size': {
+    description: '滑块大小',
+    version: '>='
+  },
+  'slider/handle-color': {
+    description: '滑块填充色，同 CSS 色值'
+  },
+  'slider/onChange': {
+    description: '完成一次拖动后触发，event.detail = {value: value}'
+  },
+  'slider/onChanging': {
+    description: '拖动过程中触发的事件，event.detail = {value: value}',
+    version: '>=1.5.0'
+  }
+};
+
+export const picker = {
+  'picker/range': {
+    description: 'String[] 时表示可选择的字符串列表；Object[] 时需指定 range-key 表示可选择的字段'
+  },
+  'picker/range-key': {
+    description: '当 range 是一个 Object[] 时，通过 range-key 来指定 Object 中 key 的值作为选择器显示内容'
+  },
+  'picker/value': { description: '表示选择了 range 中的第几个（下标从 0 开始）。' },
+  'picker/onChange': { description: 'value 改变时触发，event.detail = {value: value}' },
+  'picker/disabled': { description: '是否禁用' }
+};
+
+export const pickerView = {
+  'picker-view/value': {
+    description: '数字表示 picker-view-column 中对应的 index （从 0 开始）'
+  },
+  'picker-view/indicator-style': {
+    description: '选中框样式'
+  },
+  'picker-view/indicator-class': {
+    description: '选中框的类名',
+    version: '>=1.10'
+  },
+  'picker-view/mask-style': {
+    description: '蒙层的样式',
+    version: '>=1.10'
+  },
+  'picker-view/mask-class': {
+    description: '蒙层的类名',
+    version: '>=1.10'
+  },
+  'picker-view/onChange': {
+    description:
+      '滚动选择 value 改变时触发，event.detail = {value: value} value为数组，表示 picker-view 内的 picker-view-column index 索引 ，从 0 开始'
+  }
+};
+
+export const navigator = {
+  'navigator/open-type': {
+    description: '跳转方式'
+  },
+  'navigator/hover-class': {
+    description: '点击后的样式类'
+  },
+  'navigator/hover-start-time': {
+    description: '按住后多少时间后出现点击状态，单位ms'
+  },
+  'navigator/hover-stay-time': {
+    description: '手指松开后点击状态保留时间，单位ms'
+  },
+  'navigator/url': {
+    description: '当前小程序内的跳转链接'
+  }
+};
+
 export default {
   ...view,
   ...swiper,
@@ -370,5 +739,20 @@ export default {
   ...movableView,
   ...movableArea,
   ...text,
-  ...icon
+  ...icon,
+  ...progress,
+  ...richText,
+  ...button,
+  ...form,
+  ...label,
+  ...input,
+  ...textarea,
+  ...radioGroup,
+  ...checkbox,
+  ...checkboxGroup,
+  ..._switch,
+  ...slider,
+  ...picker,
+  ...pickerView,
+  ...navigator
 };
