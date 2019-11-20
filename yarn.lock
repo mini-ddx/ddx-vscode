@@ -3303,31 +3303,31 @@ vinyl@^2.0.0, vinyl@^2.0.1, vinyl@^2.0.2:
     remove-trailing-separator "^1.0.1"
     replace-ext "^1.0.0"
 
-vscode-jsonrpc@^5.0.0-next.3:
-  version "5.0.0-next.4"
-  resolved "https://registry.npm.taobao.org/vscode-jsonrpc/download/vscode-jsonrpc-5.0.0-next.4.tgz?cache=0&sync_timestamp=1573123498210&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvscode-jsonrpc%2Fdownload%2Fvscode-jsonrpc-5.0.0-next.4.tgz#bbe1f7b4876eefe3e93bffd93672125506698d59"
-  integrity sha1-u+H3tIdu7+PpO//ZNnISVQZpjVk=
+vscode-jsonrpc@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npm.taobao.org/vscode-jsonrpc/download/vscode-jsonrpc-4.0.0.tgz?cache=0&sync_timestamp=1573123498210&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvscode-jsonrpc%2Fdownload%2Fvscode-jsonrpc-4.0.0.tgz#a7bf74ef3254d0a0c272fab15c82128e378b3be9"
+  integrity sha1-p7907zJU0KDCcvqxXIISjjeLO+k=
 
-vscode-languageclient@^5.3.0-next.3:
-  version "5.3.0-next.9"
-  resolved "https://registry.npm.taobao.org/vscode-languageclient/download/vscode-languageclient-5.3.0-next.9.tgz#34f58017647f15cd86015f7af45935dc750611f7"
-  integrity sha1-NPWAF2R/Fc2GAV969Fk13HUGEfc=
+vscode-languageclient@5.3.0-next.3:
+  version "5.3.0-next.3"
+  resolved "https://registry.npm.taobao.org/vscode-languageclient/download/vscode-languageclient-5.3.0-next.3.tgz#befc4f5e48022a2005a3795f21b54078c61c7944"
+  integrity sha1-vvxPXkgCKiAFo3lfIbVAeMYceUQ=
   dependencies:
-    semver "^6.3.0"
-    vscode-languageserver-protocol "^3.15.0-next.8"
+    semver "^5.5.0"
+    vscode-languageserver-protocol "3.15.0-next.3"
 
-vscode-languageserver-protocol@^3.15.0-next.8:
-  version "3.15.0-next.11"
-  resolved "https://registry.npm.taobao.org/vscode-languageserver-protocol/download/vscode-languageserver-protocol-3.15.0-next.11.tgz?cache=0&sync_timestamp=1573043170524&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvscode-languageserver-protocol%2Fdownload%2Fvscode-languageserver-protocol-3.15.0-next.11.tgz#fef95eca6f7f544069cfd48610124ec0060e2cdd"
-  integrity sha1-/vleym9/VEBpz9SGEBJOwAYOLN0=
+vscode-languageserver-protocol@3.15.0-next.3:
+  version "3.15.0-next.3"
+  resolved "https://registry.npm.taobao.org/vscode-languageserver-protocol/download/vscode-languageserver-protocol-3.15.0-next.3.tgz?cache=0&sync_timestamp=1573043170524&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvscode-languageserver-protocol%2Fdownload%2Fvscode-languageserver-protocol-3.15.0-next.3.tgz#e6bc8fd0e6df18c839feaa021eb6982bb49a7ab3"
+  integrity sha1-5ryP0ObfGMg5/qoCHraYK7SaerM=
   dependencies:
-    vscode-jsonrpc "^5.0.0-next.3"
-    vscode-languageserver-types "^3.15.0-next.7"
+    vscode-jsonrpc "^4.0.0"
+    vscode-languageserver-types "3.15.0-next.1"
 
-vscode-languageserver-types@^3.15.0-next.1, vscode-languageserver-types@^3.15.0-next.7:
-  version "3.15.0-next.8"
-  resolved "https://registry.npm.taobao.org/vscode-languageserver-types/download/vscode-languageserver-types-3.15.0-next.8.tgz?cache=0&sync_timestamp=1573122431589&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvscode-languageserver-types%2Fdownload%2Fvscode-languageserver-types-3.15.0-next.8.tgz#59bfe70e5690bcef7d28d0f3a7f813915edf62e1"
-  integrity sha1-Wb/nDlaQvO99KNDzp/gTkV7fYuE=
+vscode-languageserver-types@3.15.0-next.1:
+  version "3.15.0-next.1"
+  resolved "https://registry.npm.taobao.org/vscode-languageserver-types/download/vscode-languageserver-types-3.15.0-next.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvscode-languageserver-types%2Fdownload%2Fvscode-languageserver-types-3.15.0-next.1.tgz#eddca4cf2a2547357006d4f0cc177ddc56043b65"
+  integrity sha1-7dykzyolRzVwBtTwzBd93FYEO2U=
 
 vscode@1.1.29:
   version "1.1.29"
