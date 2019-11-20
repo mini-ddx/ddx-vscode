@@ -262,7 +262,101 @@ export default {
     attributes: ['value', 'indicator-style', 'indicator-class', 'mask-style', 'mask-class', 'onChange']
   },
   navigator: {
-    description: '',
+    description: '导航',
     attributes: ['open-type', 'hover-class', 'hover-start-time', 'hover-stay-time', 'url']
+  },
+  image: {
+    description: '图片。',
+    attributes: [
+      'src',
+      'mode',
+      'class',
+      'style',
+      'lazy-load',
+      'default-source',
+      'onLoad',
+      'onError',
+      'onTap',
+      'catchTap'
+    ]
+  },
+  video: {
+    description: '',
+    attributes: [
+      'src',
+      'poster',
+      'objectFit',
+      'initial-time',
+      'duration',
+      'controls',
+      'autoplay',
+      'direction',
+      'loop',
+      'muted',
+      'show-fullscreen-btn',
+      'show-play-btn',
+      'show-center-play-btn',
+      'enableProgressGesture',
+      'mobilenetHintType',
+      'onPlay',
+      'onPause',
+      'onEnded',
+      'onTimeUpdate',
+      'onLoading',
+      'onError',
+      'onFullScreenChange',
+      'onTap',
+      'onUserAction'
+    ]
+  },
+  canvas: {
+    description:
+      '画布。画布是一个矩形区域，用于在页面上绘制图形，开发者可以控制其每一像素。canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。',
+    attributes: [
+      'id',
+      'style',
+      'class',
+      'width',
+      'height',
+      'disable-scroll',
+      'onTap',
+      'onTouchStart',
+      'onTouchMove',
+      'onTouchEnd',
+      'onTouchCancel',
+      'onLongTap'
+    ]
+  },
+  map: {
+    description:
+      '该组件是地图组件。同一个页面需要展示多个 map 组件的话，需要使用不同的 ID 。目前只支持高德地图 style 。',
+    attributes: [
+      'style',
+      'class',
+      '​latitude',
+      'longitude',
+      'scale',
+      'markers',
+      'polyline',
+      'circles',
+      'controls',
+      'polygon',
+      'show-location',
+      'include-points',
+      'include-padding',
+      'ground-overlays',
+      'tile-overlay',
+      'setting',
+      'onMarkerTap',
+      'onCalloutTap',
+      'onControlTap',
+      'onRegionChange',
+      'onTap',
+      'optimize'
+    ]
+  },
+  'web-view': {
+    description: 'web-view 组件用于承载 H5 网页，自动铺满整个小程序页面。',
+    attributes: ['src', 'onMessage']
   }
 };

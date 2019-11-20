@@ -730,6 +730,335 @@ export const navigator = {
   }
 };
 
+// todo 添加 mode 的自动提示
+export const image = {
+  'image/src': { description: '图片地址' },
+  'image/mode': { description: '图片模式' },
+  'image/class': { description: '' },
+  'image/style': { description: '' },
+  'image/lazy-load': {
+    description: '支持图片懒加载，不支持通过 css 来控制 image 展示隐藏的场景。',
+    version: '>=1.9.0'
+  },
+  'image/default-source': {
+    description: '默认图片地址，若设置默认图片地址，会先显示默认图片，等 src 对应的图片加载成功后，再渲染对应的图片。',
+    version: '>=1.19.0'
+  },
+  'image/onLoad': {
+    description: "图片载入完毕时触发，事件对象 event.detail = {height: '图片高度px', width: '图片宽度px'}"
+  },
+  'image/onError': { description: "当图片加载错误时触发，事件对象 event.detail = {errMsg: 'something wrong'}" },
+  'image/onTap': { description: '点击图片时触发' },
+  'image/catchTap': { description: '点击图片时触发，阻止事件冒泡' }
+};
+
+export const video = {
+  'video/属性名': {
+    description: '说明',
+    version: '>=undefined'
+  },
+  'video/src': {
+    description:
+      '要播放视频的资源地址，支持优酷视频编码（支付宝客户端10.1.75），优酷视频上传流程请见 小程序视频播放。\n\nsrc 支持的协议如下：\n\nvid/showId: XMzg2Mzc5MzMwMA== \n\napFilePath: https://resource/xxx.video ',
+    version: '>=undefined'
+  },
+  'video/poster': {
+    description: '视频封面图的url，支持jpg、png等图片，如https://***.jpg。如果不传的话，默认取视频的首帧图作为封面图。',
+    version: '>=undefined'
+  },
+  'video/objectFit': {
+    description: '当视频大小与 video 容器大小不一致时，视频的表现形式。contain：包含，fill：填充。',
+    version: '>=undefined'
+  },
+  'video/initial-time': {
+    description: '指定视频初始播放位置，单位s',
+    version: '>=undefined'
+  },
+  'video/duration': {
+    description: '指定视频时长，单位s，默认读取视频本身市场信息',
+    version: '>=undefined'
+  },
+  'video/controls': {
+    description: '是否显示默认播放控件（底部工具条，包括播放/暂停按钮、播放进度、时间）',
+    version: '>=undefined'
+  },
+  'video/autoplay': {
+    description: '是否自动播放',
+    version: '>=undefined'
+  },
+  'video/direction': {
+    description:
+      '设置全屏时视频的方向，不指定则根据宽高比自动判断。有效值为 0（正常竖向）, 90（屏幕逆时针90度）, -90（屏幕顺时针90度）',
+    version: '>=undefined'
+  },
+  'video/loop': {
+    description: '是否循环播放',
+    version: '>=undefined'
+  },
+  'video/muted': {
+    description: '是否静音播放',
+    version: '>=undefined'
+  },
+  'video/show-fullscreen-btn': {
+    description: '是否显示全屏按钮',
+    version: '>=undefined'
+  },
+  'video/show-play-btn': {
+    description: '是否显示视频底部控制栏的播放按钮',
+    version: '>=undefined'
+  },
+  'video/show-center-play-btn': {
+    description: '是否显示视频中间的播放按钮',
+    version: '>=undefined'
+  },
+  'video/enableProgressGesture': {
+    description: '全屏模式下是否开启控制进度的手势',
+    version: '>=undefined'
+  },
+  'video/mobilenetHintType': {
+    description: '移动网络提醒样式：0-不提醒；1-tip提醒；2-阻塞提醒(无消耗流量大小)；3-阻塞提醒(有消耗流量大小)',
+    version: '>=undefined'
+  },
+  'video/onPlay': {
+    description: '当开始/继续播放时触发 play 事件',
+    version: '>=undefined'
+  },
+  'video/onPause': {
+    description: '当暂停播放时触发 pause 事件',
+    version: '>=undefined'
+  },
+  'video/onEnded': {
+    description: '当播放到末尾时触发 ended 事件',
+    version: '>=undefined'
+  },
+  'video/onTimeUpdate': {
+    description:
+      "播放进度变化时触发，event.detail = {currentTime: '当前播放时间',userPlayDuration:'用户实际观看时长',videoDuration:'视频总时长'} ",
+    version: '>=undefined'
+  },
+  'video/onLoading': {
+    description: '视频出现缓冲时触发',
+    version: '>=undefined'
+  },
+  'video/onError': {
+    description: '视频播放出错时触发(errorCode 见下面错误码表)',
+    version: '>=undefined'
+  },
+  'video/onFullScreenChange': {
+    description:
+      '视频进入和退出全屏时触发，event.detail = {fullScreen, direction}，direction取为 vertical 或 horizontal',
+    version: '>=undefined'
+  },
+  'video/onTap': {
+    description: '点击视频 view 时触发，event.detail = {ptInView:{x:0,y:0}}',
+    version: '>=undefined'
+  },
+  'video/onUserAction': {
+    description:
+      '用户操作事件，event.detail = {tag:"mute", value:0}，tag为用户操作的元素，目前支持的 tag 有：play(底部播放按钮)、centerplay(中心播放按钮)、mute(静音按钮)、fullscreen(全屏按钮)、retry(重试按钮)、mobilenetplay(网络提醒的播放按钮)',
+    version: '>=undefined'
+  }
+};
+
+export const canvas = {
+  'canvas/id': {
+    description: '组件唯一标识符'
+  },
+  'canvas/style': {
+    description: '-'
+  },
+  'canvas/class': {
+    description: '-'
+  },
+  'canvas/width': {
+    description: '-'
+  },
+  'canvas/height': {
+    description: '-'
+  },
+  'canvas/disable-scroll': {
+    description: '禁止屏幕滚动以及下拉刷新'
+  },
+  'canvas/onTap': {
+    description: '点击'
+  },
+  'canvas/onTouchStart': {
+    description: '触摸动作开始'
+  },
+  'canvas/onTouchMove': {
+    description: '触摸后移动'
+  },
+  'canvas/onTouchEnd': {
+    description: '触摸动作结束'
+  },
+  'canvas/onTouchCancel': {
+    description: '触摸动作被打断，如来电提醒，弹窗'
+  },
+  'canvas/onLongTap': {
+    description: '长按 500ms 之后触发，触发了长按事件后进行移动将不会触发屏幕的滚动'
+  }
+};
+
+export const map = {
+  'map/属性': {
+    description: '说明',
+    version: '>=支付宝客户端支持版本'
+  },
+  'map/style': {
+    description: '内联样式'
+  },
+  'map/class': {
+    description: '样式名'
+  },
+  'map/​latitude': {
+    description: '中心纬度',
+    version: '>=​10.1.32'
+  },
+  'map/longitude': {
+    description: '中心经度',
+    version: '>=10.1.32'
+  },
+  'map/scale': {
+    description: '缩放级别，取值范围为 5-18',
+    version: '>=10.1.32'
+  },
+  'map/markers': {
+    description: '覆盖物，在地图上的一个点绘制图标',
+    version: '>=10.1.32'
+  },
+  'map/polyline': {
+    description: '覆盖物，多个连贯点的集合（路线）',
+    version: '>=10.1.32'
+  },
+  'map/circles': {
+    description: '覆盖物，圆',
+    version: '>=10.1.32'
+  },
+  'map/controls': {
+    description: '在地图View之上的一个控件',
+    version: '>=10.1.32'
+  },
+  'map/polygon': {
+    description: '覆盖物，多边形',
+    version: '>=10.1.32'
+  },
+  'map/show-location': {
+    description: '是否显示带有方向的当前定位点',
+    version: '>=10.1.32'
+  },
+  'map/include-points': {
+    description: '视野将进行小范围延伸包含传入的坐标\n[{\n    latitude: 30.279383,\n    longitude: 120.131441,\n}]\n',
+    version: '>=10.1.32'
+  },
+  'map/include-padding': {
+    description: '视野在地图padding范围内展示\n{\n    left:0, right:0,\n    top:0, bottom:0\n}\n',
+    version: '>=10.1.35'
+  },
+  'map/ground-overlays': {
+    description:
+      "覆盖物，自定义贴图\n[{\n    // 右上，左下\n    'include-points':[{\n        latitude: 39.935029,\n        longitude: 116.384377,\n    },{\n        latitude: 39.939577,\n        longitude: 116.388331,\n    }],\n    image:'/image/overlay.png',\n    alpha:0.25,\n    zIndex:1\n}]\n",
+    version: '>=10.1.35'
+  },
+  'map/tile-overlay': {
+    description:
+      "覆盖物，网格贴图\n{\n    url:'http://xxx',\n    type:0, // url类型\n    tileWidth:256,\n    tileHeight:256,\n    zIndex:1,\n}\n",
+    version: '>=10.1.35'
+  },
+  'map/setting': {
+    description:
+      '设置\n{\n\t// 手势\n\tgestureEnable: 1,\n\t// 比例尺\n\tshowScale: 1,\n\t// 指南针\n\tshowCompass: 1,\n\t//双手下滑\n\ttiltGesturesEnabled: 1,\n\t// 交通路况展示\n\ttrafficEnabled: 0,\n\t// 地图 POI 信息\n\tshowMapText: 0,\n\t// 高德地图 logo 位置\n\tlogoPosition: {\n\t\tcenterX: 150,\n\t\tcenterY: 90\n\t}\n}\n'
+  },
+  'map/onMarkerTap': {
+    description: '点击Marker时触发\n{\n    markerId,\n    latitude,\n    longitude, \n}\n',
+    version: '>=10.1.32'
+  },
+  'map/onCalloutTap': {
+    description: '点击Marker对应的callout时触发\n{\n    markerId,\n    latitude,\n    longitude, \n}\n',
+    version: '>=10.1.32'
+  },
+  'map/onControlTap': {
+    description: '点击control时触发\n{\n    controlId\n}\n',
+    version: '>=10.1.32'
+  },
+  'map/onRegionChange': {
+    description: '视野发生变化时触发\n{\n    type: "begin/end", \n    latitude,\n    longitude, \n    scale\n}\n',
+    version: '>=10.1.32'
+  },
+  'map/onTap': {
+    description: '点击地图时触发\n{\n    latitude,\n    longitude, \n}\n',
+    version: '>=10.1.32'
+  },
+  'map/optimize': {
+    description:
+      '开启optimize模式后，无需再监听onRegionChange来获取并设置新的scale值以保证地图不会再回到原来的缩放比例。若开发者需要再回到初始缩放比例，可以通过this.setData({scale: {_v: scale}})来实现。optimize模式下此写法支持longitude、latitude、sacle、show-location4个属性。',
+    version: '>=1.18.5'
+  }
+};
+
+export const webView = {
+  'web-view/src': {
+    description:
+      'web-view 要渲染的 H5 网页 URL ，需要在如下路径中 支付宝小程序管理中心 > 设置 > 开发设置 >H5域名配置 进行 H5 域名白名单配置'
+  },
+  'web-view/onMessage': { description: '网页向小程序 postMessage 消息。e.detail = { data }' }
+};
+
+export const contactButton = {
+  'contact-button/tnt-inst-id': {
+    description: '必填。企业唯一编码，一个企业支付宝账号对应一个编码。'
+  },
+  'contact-button/scene': {
+    description: '必填。聊天窗编码，每个聊天窗的唯一编码'
+  },
+  'contact-button/size': {
+    description: '选填。咨询按钮大小，正方形设置边长（如25*25 px）'
+  },
+  'contact-button/color': {
+    description: '选填。咨询按钮颜色，默认白底蓝色',
+    version: '1.9.0'
+  },
+  'contact-button/icon': {
+    description: '选填。咨询按钮头像',
+    version: '1.9.0'
+  },
+  'contact-button/alipay-card-no': {
+    description:
+      '选填。支付宝访客用户ID（2088开头）,客服回答问题时，如客户已离开咨询窗口，则通过推送消息到支付宝 card 中提醒客户。'
+  }
+};
+
+/**
+ * todo: 只对支持 WAI-ARIA 的组件提示
+ *  view
+    text
+    icon
+    button
+    label
+    checkbox
+    switch
+    image
+    radio
+ */
+export const ariaComponent = {
+  role: {
+    description: 'aria 属性的核心是 role 属性，该属性表示组件的语义角色。'
+  },
+  'aria-label': {
+    description: 'aria-label 可以代替组件内的文本内容'
+  },
+  'aria-labelledby': {
+    description: '一些组件和其他组件是有关联的，需要一起朗读才能表达出完整的含义。'
+  },
+  'aria-checked': {
+    description:
+      'aria-checked 表示 checkbox、switch 等组件是否被选中。聚焦到这些组件后，读屏软件将朗读组件的选中状态 未选中 或者 已选中 ，告诉用户当前组件的选中状态。'
+  },
+  'aria-expanded': {
+    description:
+      'aria-expanded 表示可折叠的组件的展开信息，适合对有折叠功能的组件使用，如折叠菜单、带折叠的下拉菜单等。使用 aria-expanded 属性，可让读屏软件朗读组件的展开状态。'
+  }
+};
+
 export default {
   ...view,
   ...swiper,
@@ -754,5 +1083,12 @@ export default {
   ...slider,
   ...picker,
   ...pickerView,
-  ...navigator
+  ...navigator,
+  ...image,
+  ...video,
+  ...canvas,
+  ...map,
+  ...webView,
+  ...contactButton,
+  ...ariaComponent
 };
