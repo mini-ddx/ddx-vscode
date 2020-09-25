@@ -17,24 +17,24 @@ import { generateSourceMap } from './sourceMap';
 import { isVirtualVueTemplateFile, isVueFile } from './util';
 
 export function parseVueScript(text: string): string {
-  const doc = TextDocument.create('test://test/test.ddx', 'vue', 0, text);
+  const doc = TextDocument.create('test://test/test.ddx', 'ddx', 0, text);
   const regions = getVueDocumentRegions(doc);
   const script = regions.getSingleTypeDocument('script');
   return script.getText() || 'export default {};';
 }
 
 function parseVueScriptSrc(text: string): string | undefined {
-  const doc = TextDocument.create('test://test/test.ddx', 'vue', 0, text);
+  const doc = TextDocument.create('test://test/test.ddx', 'ddx', 0, text);
   const regions = getVueDocumentRegions(doc);
   return regions.getImportedScripts()[0];
 }
 
 export function parseVueTemplate(text: string): string {
-  const doc = TextDocument.create('test://test/test.ddx', 'vue', 0, text);
+  const doc = TextDocument.create('test://test/test.ddx', 'ddx', 0, text);
   const regions = getVueDocumentRegions(doc);
   const template = regions.getSingleTypeDocument('template');
 
-  if (template.languageId !== 'vue-html') {
+  if (template.languageId !== 'ddx-html') {
     return '';
   }
   const rawText = template.getText();

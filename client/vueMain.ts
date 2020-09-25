@@ -25,7 +25,7 @@ export async function activate(context: vscode.ExtensionContext) {
    * Custom Block Grammar generation command
    */
   context.subscriptions.push(
-    vscode.commands.registerCommand('vetur.generateGrammar', generateGrammarCommandHandler(context.extensionPath))
+    vscode.commands.registerCommand('ddx.generateGrammar', generateGrammarCommandHandler(context.extensionPath))
   );
 
   /**
@@ -33,20 +33,20 @@ export async function activate(context: vscode.ExtensionContext) {
    */
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'vetur.openUserScaffoldSnippetFolder',
+      'ddx.openUserScaffoldSnippetFolder',
       generateOpenUserScaffoldSnippetFolderCommand(globalSnippetDir)
     )
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('vetur.applyWorkspaceEdits', (args: WorkspaceEdit) => {
+    vscode.commands.registerCommand('ddx.applyWorkspaceEdits', (args: WorkspaceEdit) => {
       const edit = client.protocol2CodeConverter.asWorkspaceEdit(args)!;
       vscode.workspace.applyEdit(edit);
     })
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('vetur.chooseTypeScriptRefactoring', (args: any) => {
+    vscode.commands.registerCommand('ddx.chooseTypeScriptRefactoring', (args: any) => {
       client
         .sendRequest<vscode.Command | undefined>('requestCodeActionEdits', args)
         .then(command => command && vscode.commands.executeCommand(command.command, ...command.arguments!));
@@ -91,6 +91,6 @@ function registerCustomClientNotificationHandlers(client: LanguageClient) {
 
 function registerCustomLSPCommands(context: vscode.ExtensionContext, client: LanguageClient) {
   context.subscriptions.push(
-    vscode.commands.registerCommand('vetur.showCorrespondingVirtualFile', generateShowVirtualFileCommand(client))
+    vscode.commands.registerCommand('ddx.showCorrespondingVirtualFile', generateShowVirtualFileCommand(client))
   );
 }

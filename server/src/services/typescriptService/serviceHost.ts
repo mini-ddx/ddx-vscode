@@ -469,6 +469,6 @@ function getParsedConfig(tsModule: T_TypeScript, workspacePath: string) {
     /*existingOptions*/ {},
     configFilename,
     /*resolutionStack*/ undefined,
-    [{ extension: 'vue', isMixedContent: true }]
+    [{ extension: 'ddx', isMixedContent: true }]
   );
 }

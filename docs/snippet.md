@@ -1,6 +1,6 @@
 # Snippet
 
-Vetur lets you use snippets for each embedded languages.
+ddx lets you use snippets for each embedded languages.
 
 For example, snippet defined for TypeScript will be available in the TypeScript region:
 ```html
@@ -10,12 +10,12 @@ For example, snippet defined for TypeScript will be available in the TypeScript 
 ```
 
 Two exceptions:
-- Use snippets for `vue-html` inside `<template></template>`
+- Use snippets for `ddx-html` inside `<template></template>`
 - Use `vue` snippets outside all regions
 
 ```html
 <template>
-  <!-- Use `vue-html` snippets here -->
+  <!-- Use `ddx-html` snippets here -->
 </template>
 <!-- Use `vue` snippets here -->
 <style>
@@ -24,28 +24,29 @@ Two exceptions:
 
 ## Customizable Scaffold Snippets
 
-Vetur provides scaffolding snippets for quickly defining regions.  
+ddx provides scaffolding snippets for quickly defining regions.  
 They are `vue` snippets and can be used outside language regions.
 
 To start using them, type:
 
-- `<vue` for file scaffolding snippets
+- `<ddx` for file scaffolding snippets
 - `<template` for template scaffolding snippets
 - `<style` for style scaffolding snippets
 - `<script` for script scaffolding snippets
+- `<config` for config scaffolding snippets
 
-Three sources supplement Vetur with scaffold snippets:
+Three sources supplement ddx with scaffold snippets:
 
 ![Snippet Main](./images/snippet-main.png)
 
-- 💼 Workspace. Located at `<WORKSPACE>/.vscode/vetur/snippets`. These scaffold snippets are only available in the workspace.
-- 🗒️ User data directory. You can open the folder with the command `Vetur: Open user scaffold snippet folder`. These scaffold snippets are available in all workspaces.
-- ✌ Vetur. Vetur offers a few scaffold snippets out of the box.
+- 💼 Workspace. Located at `<WORKSPACE>/.vscode/ddx/snippets`. These scaffold snippets are only available in the workspace.
+- 🗒️ User data directory. You can open the folder with the command `ddx: Open user scaffold snippet folder`. These scaffold snippets are available in all workspaces.
+- ✌ ddx. ddx offers a few scaffold snippets out of the box.
 
-The workspace/user Vetur snippet folders share the same structure:
+The workspace/user ddx snippet folders share the same structure:
 
 ```
-vetur/snippets
+ddx/snippets
 ├── docs
 │   │   // Completed as `<docs>`. Will have default completion icon.
 │   └── docs.vue
@@ -56,15 +57,15 @@ vetur/snippets
 └── vue-class-component.vue // Top level files will be completed as `<vue>`
 ```
 
-Completions of scaffold snippets are sorted by their categories. Workspace > User > Vetur.
+Completions of scaffold snippets are sorted by their categories. Workspace > User > ddx.
 
-You can customize the suffix and turn sources on/off with `vetur.completion.scaffoldSnippetSources`:
+You can customize the suffix and turn sources on/off with `ddx.completion.scaffoldSnippetSources`:
 
 ```json
-"vetur.completion.scaffoldSnippetSources": {
+"ddx.completion.scaffoldSnippetSources": {
   "workspace": "💼", // Suffix workspace snippets with `💼`
   "user": "(️User)", // Suffix workspace snippets with `(User)`
-  "vetur": "" // Disable Vetur's builtin scaffold snippets
+  "ddx": "" // Disable ddx's builtin scaffold snippets
 }
 ```
 

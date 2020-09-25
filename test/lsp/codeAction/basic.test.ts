@@ -4,7 +4,7 @@ import { activateLS, sleep, showFile, FILE_LOAD_SLEEP_TIME } from '../helper';
 import { getDocUri, sameLineRange } from '../util';
 
 describe('Should do codeAction', () => {
-  const docUri = getDocUri('client/codeAction/Basic.vue');
+  const docUri = getDocUri('client/codeAction/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -17,12 +17,12 @@ describe('Should do codeAction', () => {
   });
 
   it('finds codeAction for unused import', async () => {
-    const codeActions = [{ title: `Remove declaration for: 'lodash'`, command: 'vetur.applyWorkspaceEdits' }];
+    const codeActions = [{ title: `Remove declaration for: 'lodash'`, command: 'ddx.applyWorkspaceEdits' }];
     await testCodeAction(docUri, sameLineRange(5, 6, 6), codeActions);
   });
 
   it('finds codeAction for unused variables', async () => {
-    const codeActions = [{ title: `Remove declaration for: 'foo'`, command: 'vetur.applyWorkspaceEdits' }];
+    const codeActions = [{ title: `Remove declaration for: 'foo'`, command: 'ddx.applyWorkspaceEdits' }];
 
     await testCodeAction(docUri, sameLineRange(7, 6, 6), codeActions);
   });

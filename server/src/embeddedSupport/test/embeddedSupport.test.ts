@@ -17,15 +17,15 @@ export default {
 `;
 
   test('Basic', () => {
-    const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.vue', 'vue', 0, src));
+    const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.ddx', 'ddx', 0, src));
 
-    assert.equal(regions[0].languageId, 'vue-html');
+    assert.equal(regions[0].languageId, 'ddx-html');
     assert.equal(regions[1].languageId, 'javascript');
     assert.equal(regions[2].languageId, 'css');
   });
 
   test('Get Single Language Document', () => {
-    const doc = TextDocument.create('test://test.vue', 'vue', 0, src);
+    const doc = TextDocument.create('test://test.ddx', 'ddx', 0, src);
     const { regions } = parseVueDocumentRegions(doc);
 
     const newDoc = getSingleLanguageDocument(doc, regions, 'javascript');
@@ -36,7 +36,7 @@ export default {
   });
 
   test('Get Single RegionType Document', () => {
-    const doc = TextDocument.create('test://test.vue', 'vue', 0, src);
+    const doc = TextDocument.create('test://test.ddx', 'ddx', 0, src);
     const { regions } = parseVueDocumentRegions(doc);
 
     const newDoc = getSingleTypeDocument(doc, regions, 'script');
@@ -47,7 +47,7 @@ export default {
   });
 
   test('Get Ranges of Type', () => {
-    const doc = TextDocument.create('test://test.vue', 'vue', 0, src);
+    const doc = TextDocument.create('test://test.ddx', 'ddx', 0, src);
     const { regions } = parseVueDocumentRegions(doc);
 
     const ranges = getLanguageRangesOfType(doc, regions, 'script');
@@ -71,9 +71,9 @@ suite('Double language blocks', () => {
 </style>
 `;
 
-    const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.vue', 'vue', 0, src));
+    const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.ddx', 'ddx', 0, src));
 
-    assert.equal(regions[0].languageId, 'vue-html');
+    assert.equal(regions[0].languageId, 'ddx-html');
     assert.equal(regions[1].languageId, 'css');
     assert.equal(regions[2].languageId, 'css');
   });
@@ -91,9 +91,9 @@ suite('Double language blocks', () => {
 </style>
 `;
 
-    const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.vue', 'vue', 0, src));
+    const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.ddx', 'ddx', 0, src));
 
-    assert.equal(regions[0].languageId, 'vue-html');
+    assert.equal(regions[0].languageId, 'ddx-html');
     assert.equal(regions[1].languageId, 'scss');
     assert.equal(regions[2].languageId, 'scss');
   });
@@ -111,9 +111,9 @@ suite('Double language blocks', () => {
 </style>
 `;
 
-    const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.vue', 'vue', 0, src));
+    const { regions } = parseVueDocumentRegions(TextDocument.create('test://test.ddx', 'ddx', 0, src));
 
-    assert.equal(regions[0].languageId, 'vue-html');
+    assert.equal(regions[0].languageId, 'ddx-html');
     assert.equal(regions[1].languageId, 'scss');
     assert.equal(regions[2].languageId, 'stylus');
   });
@@ -130,7 +130,7 @@ suite('External Source', () => {
 `;
 
   test('Get Script Src', () => {
-    const { importedScripts } = parseVueDocumentRegions(TextDocument.create('test://test.vue', 'vue', 0, src));
+    const { importedScripts } = parseVueDocumentRegions(TextDocument.create('test://test.ddx', 'ddx', 0, src));
 
     assert.equal(importedScripts[0], './external.js');
   });

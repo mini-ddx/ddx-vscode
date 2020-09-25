@@ -4,7 +4,7 @@ import { activateLS, sleep, showFile, FILE_LOAD_SLEEP_TIME } from '../helper';
 import { location, position, sameLineLocation, getDocUri } from '../util';
 
 describe('Should find definition', () => {
-  const docUri = getDocUri('client/definition/Basic.vue');
+  const docUri = getDocUri('client/definition/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -27,7 +27,7 @@ describe('Should find definition', () => {
   });
 
   it('finds definition for imported Vue files', async () => {
-    const itemUri = getDocUri('client/definition/Basic.Item.vue');
+    const itemUri = getDocUri('client/definition/Basic.Item.ddx');
     await testDefinition(docUri, position(17, 7), location(itemUri, 5, 0, 7, 1));
   });
 });

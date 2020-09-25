@@ -2,4 +2,4 @@
 scopeName: vue.pug.interpolations
 injectionSelector: "L:text.pug"
 patterns:
-  - include: source.vue#vue-interpolations
+  - include: source.ddx#vue-interpolations

@@ -40,7 +40,7 @@ export function getComponentInfo(
     tsModule,
     defaultExportType,
     checker,
-    config.vetur.completion.tagCasing
+    config.ddx.completion.tagCasing
   );
 
   if (internalChildComponents) {

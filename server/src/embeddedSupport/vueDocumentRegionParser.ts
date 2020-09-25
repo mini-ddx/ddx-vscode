@@ -3,7 +3,7 @@ import { createScanner, TokenType, Scanner } from '../modes/template/parser/html
 import { removeQuotes } from '../utils/strings';
 import { LanguageId } from './embeddedSupport';
 
-export type RegionType = 'template' | 'script' | 'style' | 'custom';
+export type RegionType = 'template' | 'script' | 'style' | 'config' | 'custom';
 
 export interface EmbeddedRegion {
   languageId: LanguageId;
@@ -14,6 +14,7 @@ export interface EmbeddedRegion {
 
 const defaultScriptLang = 'javascript';
 const defaultCSSLang = 'css';
+const defaultConfigLang = 'json';
 
 export function parseVueDocumentRegions(document: TextDocument) {
   const regions: EmbeddedRegion[] = [];
@@ -90,7 +91,7 @@ export function parseVueDocumentRegions(document: TextDocument) {
 }
 
 function scanTemplateRegion(scanner: Scanner, text: string): EmbeddedRegion | null {
-  let languageId: LanguageId = 'vue-html';
+  let languageId: LanguageId = 'ddx-html';
 
   let token: number;
   let start = 0;
@@ -102,7 +103,7 @@ function scanTemplateRegion(scanner: Scanner, text: string): EmbeddedRegion | nu
   let lastAttributeName = null;
   while (unClosedTemplate !== 0) {
     // skip parsing on non html syntax, just search terminator
-    if (languageId !== 'vue-html' && start !== 0) {
+    if (languageId !== 'ddx-html' && start !== 0) {
       token = scanner.scanForRegexp(/<\/template>/);
       if (token === TokenType.EOS) {
         return null;
@@ -177,6 +178,9 @@ function getLanguageIdFromLangAttr(lang: string): LanguageId {
   }
   if (languageIdFromType === 'ts') {
     languageIdFromType = 'typescript';
+  }
+  if (languageIdFromType === 'yml') {
+    languageIdFromType = 'yaml';
   }
   return languageIdFromType as LanguageId;
 }

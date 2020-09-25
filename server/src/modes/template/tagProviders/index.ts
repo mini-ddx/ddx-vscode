@@ -1,14 +1,12 @@
 import { IHTMLTagProvider } from './common';
 import { getHTML5TagProvider } from './htmlTags';
 import { getVueTagProvider } from './vueTags';
-import { getRouterTagProvider } from './routerTags';
+// import { getRouterTagProvider } from './routerTags';
 import {
-  elementTagProvider,
-  onsenTagProvider,
-  bootstrapTagProvider,
-  buefyTagProvider,
-  gridsomeTagProvider,
-  getRuntimeTagProvider
+  getRuntimeTagProvider,
+  alipayTagProvider
+  // antUITagProvider,
+  // dingUITagProvider
 } from './externalTagProviders';
 export { getComponentInfoTagProvider as getComponentTags } from './componentInfoTagProvider';
 export { IHTMLTagProvider } from './common';
@@ -16,17 +14,11 @@ export { IHTMLTagProvider } from './common';
 import * as ts from 'typescript';
 import * as fs from 'fs';
 import { join } from 'path';
-import { getNuxtTagProvider } from './nuxtTags';
 
 export let allTagProviders: IHTMLTagProvider[] = [
   getHTML5TagProvider(),
-  getVueTagProvider(),
-  getRouterTagProvider(),
-  elementTagProvider,
-  onsenTagProvider,
-  bootstrapTagProvider,
-  buefyTagProvider,
-  gridsomeTagProvider
+  getVueTagProvider()
+  // getRouterTagProvider(),
 ];
 
 export interface CompletionConfiguration {
@@ -36,21 +28,26 @@ export interface CompletionConfiguration {
 export function getTagProviderSettings(workspacePath: string | null | undefined) {
   const settings: CompletionConfiguration = {
     html5: true,
-    vue: true,
-    router: false,
-    element: false,
-    onsen: false,
-    bootstrap: false,
-    buefy: false,
-    vuetify: false,
-    quasar: false, // Quasar v1+
-    'quasar-framework': false, // Quasar pre v1
-    nuxt: false,
-    gridsome: false
+    ddx: true, // todo add ddx
+    aliay: false,
+    // 小程序
+    'dingui-mini': false,
+    'mini-antui': false
   };
   if (!workspacePath) {
     return settings;
   }
+
+  const autoAddMap: { [packageName: string]: any } = {
+    // 'alipay': alipayTagsTagProvider, // 原生 支付宝小程序
+    // 'mini-antui': antUITagProvider,
+    // 'dingui-mini': dingUITagProvider
+  };
+
+  // 需要判断 是否支付宝小程序
+  allTagProviders.push(alipayTagProvider);
+  settings.alipay = true;
+
   try {
     const packagePath = ts.findConfigFile(workspacePath, ts.sys.fileExists, 'package.json');
     if (!packagePath) {
@@ -59,61 +56,13 @@ export function getTagProviderSettings(workspacePath: string | null | undefined)
 
     const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf-8'));
     const dependencies = packageJson.dependencies || {};
-    const devDependencies = packageJson.devDependencies || {};
-
-    if (dependencies['vue-router']) {
-      settings['router'] = true;
-    }
-    if (dependencies['element-ui']) {
-      settings['element'] = true;
-    }
-    if (dependencies['vue-onsenui']) {
-      settings['onsen'] = true;
-    }
-    if (dependencies['bootstrap-vue']) {
-      settings['bootstrap'] = true;
-    }
-    if (dependencies['buefy']) {
-      settings['buefy'] = true;
-    }
-    if (dependencies['vuetify'] || devDependencies['vuetify']) {
-      settings['vuetify'] = true;
-    }
-    if (dependencies['@nuxtjs/vuetify'] || devDependencies['@nuxtjs/vuetify']) {
-      dependencies['vuetify'] = true;
-    }
-    // Quasar v1+:
-    if (dependencies['quasar']) {
-      settings['quasar'] = true;
-    }
-    // Quasar pre v1 on non quasar-cli:
-    if (dependencies['quasar-framework']) {
-      settings['quasar-framework'] = true;
-    }
-    // Quasar pre v1 on quasar-cli:
-    if (devDependencies['quasar-cli']) {
-      // pushing dependency so we can check it
-      // and enable Quasar later below in the for()
-      dependencies['quasar-framework'] = '^0.0.17';
-    }
-    if (
-      dependencies['nuxt'] ||
-      dependencies['nuxt-legacy'] ||
-      dependencies['nuxt-edge'] ||
-      dependencies['nuxt-ts'] ||
-      dependencies['nuxt-ts-edge']
-    ) {
-      const nuxtTagProvider = getNuxtTagProvider(workspacePath);
-      if (nuxtTagProvider) {
-        settings['nuxt'] = true;
-        allTagProviders.push(nuxtTagProvider);
-      }
-    }
-    if (dependencies['gridsome']) {
-      settings['gridsome'] = true;
-    }
+    // const devDependencies = packageJson.devDependencies || {};
 
     for (const dep in dependencies) {
+      if (autoAddMap[dep] !== undefined) {
+        allTagProviders.push(autoAddMap[dep]);
+        continue;
+      }
       const runtimePkgPath = ts.findConfigFile(
         workspacePath,
         ts.sys.fileExists,

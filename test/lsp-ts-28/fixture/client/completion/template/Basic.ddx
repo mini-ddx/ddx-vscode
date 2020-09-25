@@ -1,0 +1,19 @@
+<template>
+  <div v>
+    <i
+  </div>
+</template>
+
+<script>
+import Item from './Item.ddx'
+
+export default {
+  components: {
+    Item
+  }
+}
+</script>
+
+<style>
+
+</style>

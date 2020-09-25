@@ -10,14 +10,14 @@ import { resolve } from 'path';
 import { existsSync } from 'fs';
 
 export function initializeLanguageClient(vlsModulePath: string, globalSnippetDir: string): LanguageClient {
-  const debugOptions = { execArgv: ['--nolazy', '--inspect=6005'] };
+  const debugOptions = { execArgv: ['--nolazy', '--inspect=6006'] };
 
-  const documentSelector = ['vue'];
+  const documentSelector = ['ddx'];
   const config = vscode.workspace.getConfiguration();
 
   let serverPath;
 
-  const devVlsPackagePath = config.get('vetur.dev.vlsPath', '');
+  const devVlsPackagePath = config.get('ddx.dev.vlsPath', '');
   if (devVlsPackagePath && devVlsPackagePath !== '' && existsSync(devVlsPackagePath)) {
     serverPath = resolve(devVlsPackagePath, 'dist/vueServerMain.js');
   } else {
@@ -25,7 +25,7 @@ export function initializeLanguageClient(vlsModulePath: string, globalSnippetDir
   }
 
   const runExecArgv: string[] = [];
-  const vlsPort = config.get('vetur.dev.vlsPort');
+  const vlsPort = config.get('ddx.dev.vlsPort');
   if (vlsPort !== -1) {
     runExecArgv.push(`--inspect=${vlsPort}`);
     console.log(`Will launch VLS in port: ${vlsPort}`);
@@ -39,7 +39,7 @@ export function initializeLanguageClient(vlsModulePath: string, globalSnippetDir
   const clientOptions: LanguageClientOptions = {
     documentSelector,
     synchronize: {
-      configurationSection: ['vetur', 'emmet', 'html', 'javascript', 'typescript', 'prettier', 'stylusSupremacy'],
+      configurationSection: ['ddx', 'emmet', 'html', 'javascript', 'typescript', 'prettier', 'stylusSupremacy'],
       fileEvents: vscode.workspace.createFileSystemWatcher('{**/*.js,**/*.ts}', false, false, true)
     },
     initializationOptions: {
@@ -49,5 +49,5 @@ export function initializeLanguageClient(vlsModulePath: string, globalSnippetDir
     revealOutputChannelOn: RevealOutputChannelOn.Never
   };
 
-  return new LanguageClient('vetur', 'ddx Language Server', serverOptions, clientOptions);
+  return new LanguageClient('ddx', 'ddx Language Server', serverOptions, clientOptions);
 }

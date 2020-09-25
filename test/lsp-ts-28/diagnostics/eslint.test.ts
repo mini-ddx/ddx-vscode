@@ -4,7 +4,7 @@ import { position, sameLineRange, getDocUri } from '../util';
 import { testDiagnostics } from './helper';
 
 describe('Should find diagnostics using eslint-plugin-vue', () => {
-  const docUri = getDocUri('client/diagnostics/ESLint.vue');
+  const docUri = getDocUri('client/diagnostics/ESLint.ddx');
 
   before('activate', async () => {
     await activateLS();

@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as $ from 'shelljs';
 import { downloadVSCode } from './downloadVSCode';
 
-console.log('### Vetur Integration Test ###');
+console.log('### ddx Integration Test ###');
 console.log('');
 
 const EXT_ROOT = path.resolve(__dirname, '../../');

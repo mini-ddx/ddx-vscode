@@ -3,7 +3,7 @@ import { position, getDocUri } from '../util';
 import { testCompletion } from './helper';
 
 describe('Should autocomplete scaffold snippets', () => {
-  const scriptDocUri = getDocUri('client/completion/script/Scaffold.vue');
+  const scriptDocUri = getDocUri('client/completion/script/Scaffold.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -15,30 +15,30 @@ describe('Should autocomplete scaffold snippets', () => {
 
   it('completes all scaffold snippets', async () => {
     await testCompletion(scriptDocUri, position(0, 1), [
-      '<vue> with default.vue ✌',
-      '<template> html.vue ✌',
-      '<template> pug.vue ✌',
-      '<style> css-scoped.vue ✌',
-      '<style> css.vue ✌',
-      '<style> less-scoped.vue ✌',
-      '<style> less.vue ✌',
-      '<style> postcss-scoped.vue ✌',
-      '<style> postcss.vue ✌',
-      '<style> sass-scoped.vue ✌',
-      '<style> sass.vue ✌',
-      '<style> scss-scoped.vue ✌',
-      '<style> scss.vue ✌',
-      '<style> stylus-scoped.vue ✌',
-      '<style> stylus.vue ✌',
-      '<script> javascript.vue ✌',
-      '<script> typescript.vue ✌'
+      '<ddx> with default.ddx ✌',
+      '<template> html.ddx ✌',
+      '<template> pug.ddx ✌',
+      '<style> css-scoped.ddx ✌',
+      '<style> css.ddx ✌',
+      '<style> less-scoped.ddx ✌',
+      '<style> less.ddx ✌',
+      '<style> postcss-scoped.ddx ✌',
+      '<style> postcss.ddx ✌',
+      '<style> sass-scoped.ddx ✌',
+      '<style> sass.ddx ✌',
+      '<style> scss-scoped.ddx ✌',
+      '<style> scss.ddx ✌',
+      '<style> stylus-scoped.ddx ✌',
+      '<style> stylus.ddx ✌',
+      '<script> javascript.ddx ✌',
+      '<script> typescript.ddx ✌'
     ]);
   });
 
   it('completes project wide scaffold snippets', async () => {
     await testCompletion(scriptDocUri, position(0, 1), [
       {
-        label: '<vue> with foo.vue 💼'
+        label: '<ddx> with foo.ddx 💼'
       }
     ]);
   });

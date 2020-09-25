@@ -10,7 +10,7 @@ describe('Should find template-diagnostics in <template> region', () => {
 
   const tests: TemplateDiagnosticTest[] = [
     {
-      file: 'expression.vue',
+      file: 'expression.ddx',
       diagnostics: [
         {
           range: sameLineRange(1, 8, 16),
@@ -20,7 +20,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'filter.vue',
+      file: 'filter.ddx',
       diagnostics: [
         {
           range: sameLineRange(1, 42, 46),
@@ -40,7 +40,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'v-if-narrowing.vue',
+      file: 'v-if-narrowing.ddx',
       diagnostics: [
         {
           range: sameLineRange(3, 16, 20),
@@ -65,7 +65,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'v-for.vue',
+      file: 'v-for.ddx',
       diagnostics: [
         {
           range: sameLineRange(5, 15, 24),
@@ -75,7 +75,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'v-if-and-v-for.vue',
+      file: 'v-if-and-v-for.ddx',
       diagnostics: [
         {
           range: sameLineRange(3, 16, 17),
@@ -87,7 +87,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       skipSameDiagnosticCountAssert: true
     },
     {
-      file: 'v-slot.vue',
+      file: 'v-slot.ddx',
       diagnostics: [
         {
           range: sameLineRange(2, 15, 16),
@@ -97,7 +97,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'v-slot-scope.vue',
+      file: 'v-slot-scope.ddx',
       diagnostics: [
         {
           range: sameLineRange(4, 9, 10),
@@ -109,7 +109,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       skipSameDiagnosticCountAssert: true
     },
     {
-      file: 'object-literal.vue',
+      file: 'object-literal.ddx',
       diagnostics: [
         {
           range: sameLineRange(4, 11, 14),
@@ -124,7 +124,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'v-on.vue',
+      file: 'v-on.ddx',
       diagnostics: [
         {
           range: sameLineRange(12, 31, 34),
@@ -150,7 +150,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'directive.vue',
+      file: 'directive.ddx',
       diagnostics: [
         {
           range: sameLineRange(1, 22, 25),
@@ -160,7 +160,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'directive-dynamic-argument.vue',
+      file: 'directive-dynamic-argument.ddx',
       diagnostics: [
         {
           range: sameLineRange(3, 6, 14),
@@ -180,7 +180,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'template-position.vue',
+      file: 'template-position.ddx',
       diagnostics: [
         {
           range: sameLineRange(13, 18, 21),
@@ -190,7 +190,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'jsdocs-type-check.vue',
+      file: 'jsdocs-type-check.ddx',
       diagnostics: [
         {
           range: sameLineRange(2, 23, 26),
@@ -200,7 +200,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'member-modifiers.vue',
+      file: 'member-modifiers.ddx',
       diagnostics: [
         {
           range: sameLineRange(9, 16, 17),
@@ -215,7 +215,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'external-script.vue',
+      file: 'external-script.ddx',
       diagnostics: [
         {
           range: sameLineRange(1, 10, 18),
@@ -225,7 +225,7 @@ describe('Should find template-diagnostics in <template> region', () => {
       ]
     },
     {
-      file: 'trivia.vue',
+      file: 'trivia.ddx',
       diagnostics: [
         {
           range: sameLineRange(4, 10, 18),
@@ -250,7 +250,7 @@ describe('Should find template-diagnostics in <template> region', () => {
     });
   });
 
-  const noErrorTests: string[] = ['class.vue', 'style.vue', 'hyphen-attrs.vue', 'template-literal.vue'];
+  const noErrorTests: string[] = ['class.ddx', 'style.ddx', 'hyphen-attrs.ddx', 'template-literal.ddx'];
 
   noErrorTests.forEach(t => {
     it(`Shows no template diagnostics error for ${t}`, async () => {

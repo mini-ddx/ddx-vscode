@@ -8,7 +8,7 @@ In addition to the normal issues, please include a profile in performance-relate
 
 ## Profiling
 
-Vetur has 2 parts:
+ddx has 2 parts:
 
 - The client at `/client`. This is a normal VS Code extension.
 - The server (Vue Language Server) at `/server`. This is a language server.
@@ -20,7 +20,7 @@ Here is a rough illustration:
 The perf issue is mostly caused by the server. Here's how to profile it.
 
 - You need Chrome for profiling.
-- Set `vetur.dev.vlsPort` to a number, say `8000`.
+- Set `ddx.dev.vlsPort` to a number, say `8000`.
 - Open [chrome://inspect/](chrome://inspect/) in Chrome.
 - You should see a Node.js remote target like below. That's the VLS process. Click it.
 - ![image](https://user-images.githubusercontent.com/4033249/56996577-d61d0c00-6b59-11e9-85f0-29dc15e2e2aa.png)

@@ -1,10 +1,10 @@
-# Vetur
+# ddx
 
-[![](https://vsmarketplacebadge.apphb.com/version-short/octref.vetur.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
-[![](https://vsmarketplacebadge.apphb.com/installs-short/octref.vetur.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
-[![](https://vsmarketplacebadge.apphb.com/rating-short/octref.vetur.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+[![](https://vsmarketplacebadge.apphb.com/version-short/octref.ddx.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=yyjazsf.ddx-vscode)
+[![](https://vsmarketplacebadge.apphb.com/installs-short/octref.ddx.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=yyjazsf.ddx-vscode)
+[![](https://vsmarketplacebadge.apphb.com/rating-short/octref.ddx.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=yyjazsf.ddx-vscode)
 
-Vue tooling for VS Code, powered by [vue-language-server](https://github.com/vuejs/vetur/tree/master/server).
+Vue tooling for VS Code, powered by [vue-language-server](https://github.com/vuejs/ddx/tree/master/server).
 
 Try it out with [Veturpack](https://github.com/octref/veturpack)!
 
@@ -12,7 +12,7 @@ Try it out with [Veturpack](https://github.com/octref/veturpack)!
 
 
 This extension is under heavy development.
-You can [open an issue](https://github.com/vuejs/vetur/issues/new) for bugs or feature requests.
+You can [open an issue](https://github.com/vuejs/ddx/issues/new) for bugs or feature requests.
 
 ## Features
 
@@ -27,14 +27,14 @@ You can [open an issue](https://github.com/vuejs/vetur/issues/new) for bugs or f
 
 ## Quick Start
 
-- Install [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur).
+- Install [ddx](https://marketplace.visualstudio.com/items?itemName=yyjazsf.ddx-vscode).
 - Try it with [Veturpack](https://github.com/octref/veturpack), a pre-configured Vue boilerplate based on [Vuepack](https://github.com/egoist/vuepack).
 - Refer to [setup](setup.md) page for setting up.
 - Refer to each feature's own page for setting up specific features.
 
 ## Contributing
 
-[Contribution Guide](https://github.com/vuejs/vetur/blob/master/.github/CONTRIBUTING.md).
+[Contribution Guide](https://github.com/vuejs/ddx/blob/master/.github/CONTRIBUTING.md).
 
 ## License
 

@@ -4,11 +4,11 @@ import { activateLS, showFile, sleep, readFileAsync, setEditorContent, FILE_LOAD
 import { getDocUri } from '../util';
 
 describe('Should format', () => {
-  const docUri = getDocUri('client/formatting/Basic.vue');
-  const expectedDocUri = getDocUri('client/formatting/Basic.Expected.vue');
+  const docUri = getDocUri('client/formatting/Basic.ddx');
+  const expectedDocUri = getDocUri('client/formatting/Basic.Expected.ddx');
 
-  const docUri2 = getDocUri('client/formatting/VueHNUserView.vue');
-  const expectedDocUri2 = getDocUri('client/formatting/VueHNUserView.Expected.vue');
+  const docUri2 = getDocUri('client/formatting/VueHNUserView.ddx');
+  const expectedDocUri2 = getDocUri('client/formatting/VueHNUserView.Expected.ddx');
 
   before('activate', async () => {
     await activateLS();

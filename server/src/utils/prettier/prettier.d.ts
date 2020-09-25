@@ -13,7 +13,7 @@ export type ParserOption =
   | 'json-stringify'
   | 'graphql'
   | 'markdown'
-  | 'vue'
+  | 'ddx'
   | 'html'
   | 'angular'
   | 'mdx'

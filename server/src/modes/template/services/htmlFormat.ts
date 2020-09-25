@@ -82,7 +82,7 @@ function formatWithPrettier(
   vlsFormatConfig: VLSFormatConfig,
   initialIndent: boolean
 ) {
-  return prettierify(code, fileFsPath, range, vlsFormatConfig, 'vue', initialIndent);
+  return prettierify(code, fileFsPath, range, vlsFormatConfig, 'ddx', initialIndent);
 }
 
 function getPrettyHtmlOptions(prettierrcOptions: Partial<PrettierConfig> | null, vlsFormatConfig: VLSFormatConfig) {

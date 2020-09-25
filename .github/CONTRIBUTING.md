@@ -1,6 +1,6 @@
 # Contribution Guide
 
-Contribution is welcome! There are many ways you could help Vetur's development:
+Contribution is welcome! There are many ways you could help ddx's development:
 
 - Writing Code
 - Improving Doc
@@ -18,7 +18,7 @@ Comment on feature requests that you'd like to contribute before sending PR.
 
 #### Code Dev Guide
 
-Vetur consists of 2 parts
+ddx consists of 2 parts
 
 - Language Client as a normal VS Code extension
 - Vue Language Server
@@ -45,15 +45,15 @@ To debug:
 
 It should look like this:
 
-![VS Code Debugging](https://raw.githubusercontent.com/vuejs/vetur/master/docs/images/debug.png)
+![VS Code Debugging](https://raw.githubusercontent.com/vuejs/ddx/master/docs/images/debug.png)
 
-**`vetur.dev.vlsPath`**
+**`ddx.dev.vlsPath`**
 
-You can use this setting to make Vetur load a development version of `vue-language-server`. Some use cases:
+You can use this setting to make ddx load a development version of `vue-language-server`. Some use cases:
 
-- You fixed a bug in Vetur, but the PR is pending and won't be published anytime soon.
-- You want to use TS 3.1, but Vetur bundles TS 2.8.
-- You are contributing to Vetur, and would run alpha/beta/RC versions in your daily development to provide feedback and find bugs.
+- You fixed a bug in ddx, but the PR is pending and won't be published anytime soon.
+- You want to use TS 3.1, but ddx bundles TS 2.8.
+- You are contributing to ddx, and would run alpha/beta/RC versions in your daily development to provide feedback and find bugs.
 
 Two ways of using it:
 
@@ -64,11 +64,11 @@ Two ways of using it:
 
 - Open the yaml files in `/syntax`
 - After editing use either `yarn build:grammar` or `npm run build:grammar` to build the json files
-- If you changed the `vue.yaml` file, be sure to run the `vetur.generateGrammar` command from the vscode command palette
+- If you changed the `vue.yaml` file, be sure to run the `ddx.generateGrammar` command from the vscode command palette
 
 > Tip: In VS Code, use F1 -> Inspect TM Scopes to view language scopes to debug the grammar:
 
-![scope](https://raw.githubusercontent.com/vuejs/vetur/master/docs/images/scope.png)
+![scope](https://raw.githubusercontent.com/vuejs/ddx/master/docs/images/scope.png)
 
 ## Doc
 

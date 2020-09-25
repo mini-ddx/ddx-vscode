@@ -1,0 +1,17 @@
+<template>
+  ${0}
+</template>
+
+<config>
+
+</config>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

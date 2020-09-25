@@ -4,7 +4,7 @@ import { activateLS, sleep, showFile, FILE_LOAD_SLEEP_TIME } from '../helper';
 import { position, location, sameLineLocation, getDocUri } from '../util';
 
 describe('Should find references', () => {
-  const docUri = getDocUri('client/references/Basic.vue');
+  const docUri = getDocUri('client/references/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -39,7 +39,7 @@ describe('Should find references', () => {
   });
 
   it('finds references for imported Vue files', async () => {
-    const itemUri = getDocUri('client/references/Basic.Item.vue');
+    const itemUri = getDocUri('client/references/Basic.Item.ddx');
     await testReferences(docUri, position(20, 16), [
       sameLineLocation(docUri, 17, 7, 11),
       sameLineLocation(itemUri, 5, 7, 14)

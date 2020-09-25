@@ -1,8 +1,8 @@
 # Framework Support
 
-Vue frameworks can define custom components used in `<template>` region. For example, `vue-router` provides `<router-link>` component that could have attributes such as `to` and `replace`. Vetur currently provides autocomplete support for the component names and attributes.
+Vue frameworks can define custom components used in `<template>` region. For example, `vue-router` provides `<router-link>` component that could have attributes such as `to` and `replace`. ddx currently provides autocomplete support for the component names and attributes.
 
-Vetur currently provides framework support for the following vue libraries:
+ddx currently provides framework support for the following vue libraries:
 
 - [Vue Router](https://router.vuejs.org/)
 - [Nuxt](https://nuxtjs.org/)
@@ -16,11 +16,11 @@ Vetur currently provides framework support for the following vue libraries:
 
 ## Usage
 
-Vetur reads the `package.json` **in your project root** to determine if it should offer tags & attributes completions. Here are the exact dependencies and sources of their definitions.
+ddx reads the `package.json` **in your project root** to determine if it should offer tags & attributes completions. Here are the exact dependencies and sources of their definitions.
 
 | Dependency | Source |
 |---|---|
-| `vue-router` | [Vetur](https://github.com/vuejs/vetur/blob/master/server/src/modes/template/tagProviders/routerTags.ts) |
+| `vue-router` | [ddx](https://github.com/vuejs/ddx/blob/master/server/src/modes/template/tagProviders/routerTags.ts) |
 | `element-ui` | [element-helper-json](https://github.com/ElementUI/element-helper-json) |
 | `vue-onsenui` | [vue-onsenui-helper-json](https://www.npmjs.com/package/vue-onsenui-helper-json) |
 | `bootstrap-vue` | [bootstrap-vue-helper-json](https://github.com/bootstrap-vue/bootstrap-vue-helper-json) |
@@ -35,13 +35,13 @@ Getting `element-ui`'s completions is as easy as running `yarn add element-ui` a
 
 ## Custom Tags / Attributes
 
-If a package listed in `dependencies` has a `vetur` key, then Vetur will try to read the tags / attriutes specified by that key.
+If a package listed in `dependencies` has a `ddx` key, then ddx will try to read the tags / attriutes specified by that key.
 
 ```json
 {
-  "vetur": {
-    "tags": "dist/vetur/tags.json",
-    "attributes": "dist/vetur/attributes.json"
+  "ddx": {
+    "tags": "dist/ddx/tags.json",
+    "attributes": "dist/ddx/attributes.json"
   }
 }
 ```
@@ -50,8 +50,8 @@ By bundling the tags / attributes definitions together with the framework librar
 
 ## Adding a Framework
 
-If your Vue UI framework has a lot of users, we might consider adding support for it in Vetur.
+If your Vue UI framework has a lot of users, we might consider adding support for it in ddx.
 
-Here are the two PRs for [Element](https://github.com/vuejs/vetur/pull/234) and [Onsen](https://github.com/vuejs/vetur/pull/308). Open an issue for discussion first before sending PR.
+Here are the two PRs for [Element](https://github.com/vuejs/ddx/pull/234) and [Onsen](https://github.com/vuejs/ddx/pull/308). Open an issue for discussion first before sending PR.
 
-However, you should first consider adding `vetur` key to your `package.json` and publishing the tags / attributes together with your package (just as you do for `d.ts` files).
+However, you should first consider adding `ddx` key to your `package.json` and publishing the tags / attributes together with your package (just as you do for `d.ts` files).

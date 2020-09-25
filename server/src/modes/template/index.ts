@@ -11,7 +11,7 @@ import { T_TypeScript } from '../../services/dependencyService';
 
 type DocumentRegionCache = LanguageModelCache<VueDocumentRegions>;
 
-export class VueHTMLMode implements LanguageMode {
+export class DdxHTMLMode implements LanguageMode {
   private htmlMode: HTMLMode;
   private vueInterpolationMode: VueInterpolationMode;
 
@@ -26,7 +26,7 @@ export class VueHTMLMode implements LanguageMode {
     this.vueInterpolationMode = new VueInterpolationMode(tsModule, serviceHost);
   }
   getId() {
-    return 'vue-html';
+    return 'ddx-html';
   }
   configure(c: any) {
     this.htmlMode.configure(c);

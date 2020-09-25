@@ -27,7 +27,7 @@ function genAttr(lang: string) {
 
 function getLangId(block: string, lang: string) {
   const mapping: { [block: string]: string } = {
-    template: 'vue-html',
+    template: 'ddx-html',
     script: 'javascript',
     style: 'css'
   };
@@ -88,7 +88,7 @@ function testcase(description: string) {
       if (offset >= 0) {
         content = content.substr(0, offset) + content.substr(offset + 1);
       }
-      const doc = TextDocument.create('test://test/test.vue', 'vue', 0, content);
+      const doc = TextDocument.create('test://test/test.ddx', 'ddx', 0, content);
 
       test(description, () => {
         const ranges = getVueDocumentRegions(doc).getAllLanguageRanges();

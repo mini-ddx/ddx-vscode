@@ -4,7 +4,7 @@ import { activateLS, sleep, showFile, FILE_LOAD_SLEEP_TIME } from '../helper';
 import { sameLineRange, getDocUri } from '../util';
 
 describe('Should do documentLink', () => {
-  const docUri = getDocUri('client/documentLink/Basic.vue');
+  const docUri = getDocUri('client/documentLink/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -12,7 +12,7 @@ describe('Should do documentLink', () => {
     await sleep(FILE_LOAD_SLEEP_TIME * 3);
   });
 
-  it('shows all documentLinks for Basic.vue', async () => {
+  it('shows all documentLinks for Basic.ddx', async () => {
     await testLink(docUri, [
       { target: vscode.Uri.parse('https://vuejs.org/images/logo.png'), range: sameLineRange(2, 14, 47) },
       { target: getDocUri('client/documentLink/foo'), range: sameLineRange(3, 13, 18) },

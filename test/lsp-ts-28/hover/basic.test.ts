@@ -4,7 +4,7 @@ import { activateLS, sleep, showFile, FILE_LOAD_SLEEP_TIME } from '../helper';
 import { position, sameLineRange, getDocUri } from '../util';
 
 describe('Should do hover', () => {
-  const docUri = getDocUri('client/hover/Basic.vue');
+  const docUri = getDocUri('client/hover/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();

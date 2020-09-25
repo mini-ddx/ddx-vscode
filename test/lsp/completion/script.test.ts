@@ -3,7 +3,7 @@ import { position, getDocUri } from '../util';
 import { testCompletion } from './helper';
 
 describe('Should autocomplete for <script>', () => {
-  const scriptDocUri = getDocUri('client/completion/script/Basic.vue');
+  const scriptDocUri = getDocUri('client/completion/script/Basic.ddx');
 
   before('activate', async () => {
     await activateLS();
@@ -14,7 +14,7 @@ describe('Should autocomplete for <script>', () => {
   });
 
   it('completes module names when importing', async () => {
-    await testCompletion(scriptDocUri, position(5, 8), ['lodash', 'vue', 'vuex']);
+    await testCompletion(scriptDocUri, position(5, 8), ['lodash', 'ddx', 'vuex']);
   });
 
   it('completes for this.', async () => {
