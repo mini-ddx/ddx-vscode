@@ -1,11 +1,11 @@
 {
   "name": "ddx",
-  "displayName": "ddx-vscode",
+  "displayName": "ddx",
   "description": "mini program enhancement",
-  "author": "yyjazsf <admin@yingyj.com>",
+  "author": "renhong.xrh <xierenyuan@qq.com>",
   "icon": "asset/ddx.png",
-  "version": "1.0.2",
-  "publisher": "yyjazsf",
+  "version": "1.0.0",
+  "publisher": "ddx",
   "scripts": {
     "build:grammar": "tsc -p . && node dist/scripts/build_grammar",
     "compile": "run-s compile:source copy:snippets",
@@ -148,7 +148,7 @@
       {
         "language": "ddx-html",
         "scopeName": "text.html.ddx-html",
-        "path": "./syntaxes/ddx-html.tmLanguage.json",
+        "path": "./syntaxes/vue-html.tmLanguage.json",
         "embeddedLanguages": {
           "source.js": "javascript"
         }
@@ -478,26 +478,26 @@
     }
   },
   "devDependencies": {
-    "@types/glob": "^7.1.1",
-    "@types/js-yaml": "^3.12.1",
-    "@types/lodash": "^4.14.117",
-    "@types/mocha": "^5.2.6",
-    "@types/node": "^12.7.4",
-    "@types/shelljs": "^0.8.5",
-    "@types/vscode": "^1.32.0",
-    "@typescript-eslint/eslint-plugin": "^2.8.0",
-    "@typescript-eslint/parser": "^2.7.0",
-    "eslint": "^6.6.0",
-    "glob": "^7.1.4",
-    "husky": "^3.0.0",
-    "js-yaml": "^3.13.1",
-    "lint-staged": "^9.2.0",
-    "mocha": "^5.2.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.17.0",
-    "shelljs": "^0.8.3",
-    "tslint": "^5.18.0",
-    "typescript": "^3.6.3",
+    "@types/glob": "7.1.1",
+    "@types/js-yaml": "3.12.1",
+    "@types/lodash": "4.14.117",
+    "@types/mocha": "5.2.6",
+    "@types/node": "12.7.4",
+    "@types/shelljs": "0.8.5",
+    "@types/vscode": "1.32.0",
+    "@typescript-eslint/eslint-plugin": "2.8.0",
+    "@typescript-eslint/parser": "2.7.0",
+    "eslint": "6.6.0",
+    "glob": "7.1.4",
+    "husky": "3.0.0",
+    "js-yaml": "3.13.1",
+    "lint-staged": "9.2.0",
+    "mocha": "5.2.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "1.17.0",
+    "shelljs": "0.8.3",
+    "tslint": "5.18.0",
+    "typescript": "3.6.3",
     "vscode": "1.1.29"
   }
 }
